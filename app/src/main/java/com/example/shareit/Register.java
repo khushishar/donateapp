@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,11 +27,16 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Register extends AppCompatActivity {
 
     TextInputEditText edt_Mail, edt_Password, edt_Name, edt_Phone;
+    AutoCompleteTextView edt_User_Class;
+    String email, name, usertype, phone, password;
     Button btn_register;
     ProgressBar progressBar;
     TextView to_login;
     FirebaseAuth mAuth;
     DatabaseReference UserDB;
+
+    String[] UserClass = {"Donor", "Receiver"};
+    ArrayAdapter<String> adapterClasses;
 
 
     @Override
@@ -54,9 +62,19 @@ public class Register extends AppCompatActivity {
         edt_Password = findViewById(R.id.register_password);
         edt_Name = findViewById(R.id.register_name);
         edt_Phone = findViewById(R.id.register_phone);
+        edt_User_Class = findViewById(R.id.register_user_type);
+        adapterClasses = new ArrayAdapter<String>(this, R.layout.userclass, UserClass);
         btn_register = findViewById(R.id.register_btn);
         to_login = findViewById(R.id.to_login);
         progressBar = findViewById(R.id.register_progressbar);
+
+        edt_User_Class.setAdapter(adapterClasses);
+        edt_User_Class.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                usertype = String.valueOf(parent.getItemAtPosition(position));
+            }
+        });
 
         to_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +89,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email,name, phone,password;
+//                String email,name, phone,password;
 
                 email = String.valueOf(edt_Mail.getText());
                 password = String.valueOf(edt_Password.getText());
@@ -94,6 +112,9 @@ public class Register extends AppCompatActivity {
                 }
                 else if (TextUtils.isEmpty(phone)||!phone.matches("^[+]?[0-9]{10,13}$")){
                     Toast.makeText(Register.this, "Please Enter correct phone number", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (TextUtils.isEmpty(usertype)) {
+                    Toast.makeText(Register.this, "Please Select User Type", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -127,11 +148,9 @@ public class Register extends AppCompatActivity {
     }
 
     public void insertUserData (String UserID) {
-        String name = String.valueOf(edt_Name.getText());
-        String phone = String.valueOf(edt_Phone.getText());
-        String email = String.valueOf(edt_Mail.getText());
+
         String userId = UserID;
-        User user = new User(name, phone, email, userId);
+        User user = new User(name, phone, email, usertype, userId);
 
         UserDB.child("Users").child(user.getUserId()).setValue(user);
     }
