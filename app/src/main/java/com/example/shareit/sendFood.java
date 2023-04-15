@@ -50,6 +50,7 @@ public class sendFood extends AppCompatActivity {
     String UserID, UserName, UserPhone;
     Double LocLatitude, LocLongitude;
     FusedLocationProviderClient fusedLocationProviderClient;
+    private static final int REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +118,6 @@ public class sendFood extends AppCompatActivity {
         sendFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 insertFoodData();
             }
         });
@@ -136,31 +136,31 @@ public class sendFood extends AppCompatActivity {
                     }
                 }
             });
-//            return ;
         }
-//        return true;
     }
 
-    ;
 
     private void insertFoodData() {
 
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
+//        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            // TODO: Consider calling
+//            //    ActivityCompat#requestPermissions
+//            // here to request the missing permissions, and then overriding
+//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//            //                                          int[] grantResults)
+//            // to handle the case where the user grants the permission. See the documentation
+//            // for ActivityCompat#requestPermissions for more details.
+//            return;
+//        }
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
+            askPermission();
         }
         LocationServices.getFusedLocationProviderClient(this).getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
 
-                if(LocLatitude == null){
-                    LocLatitude = location.getLatitude();
+                if(LocLongitude == null){
+                    LocLongitude = location.getLongitude();
                 } else if (LocLatitude == null) {
                     LocLatitude = location.getLatitude();
                 }
@@ -172,10 +172,11 @@ public class sendFood extends AppCompatActivity {
                 FoodItem.put("DonorNumber", UserPhone);
                 FoodItem.put("FoodName", String.valueOf(foodName.getText()));
                 FoodItem.put("FoodCount", String.valueOf(foodQuantity.getText()));
-                FoodItem.put("Latitude", LocLatitude);
                 FoodItem.put("Longitude", LocLongitude);
+                FoodItem.put("Latitude", LocLatitude);
                 FoodItem.put("TimeStamp", com.google.firebase.Timestamp.now());
                 FoodItem.put("MilliSec", timestamp.getTime());
+                FoodItem.put("Status", "Active");
 
                 FoodDB.collection("Foods").add(FoodItem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -197,27 +198,26 @@ public class sendFood extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-//        FoodDB.collection("Foods").add(FoodItem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//            @Override
-//            public void onSuccess(DocumentReference documentReference) {
-//                Toast.makeText(sendFood.this, "Food Order: " + documentReference.getId() + "set successfully", Toast.LENGTH_SHORT).show();
-//                Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(intent_main);
-//                finish();
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(sendFood.this, "Food Order unsuccessful \nError Code:  " + e , Toast.LENGTH_SHORT).show();
-//                Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(intent_main);
-//                finish();
-//            }
-//        });
     }
+
+    private void askPermission() {
+        ActivityCompat.requestPermissions(sendFood.this, new String[] {android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();;
+            }else{
+                mAuth.signOut();
+                Intent intent_login = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent_login);
+                finish();
+                Toast.makeText(this, "Permission is compulsory", Toast.LENGTH_SHORT).show();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
 }

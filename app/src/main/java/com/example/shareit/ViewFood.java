@@ -16,6 +16,7 @@ import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -27,6 +28,13 @@ public class ViewFood extends AppCompatActivity implements SelectListener {
     MyAdapter myAdapter;
     FirebaseFirestore FoodDB;
     ProgressDialog progressDialog;
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +59,9 @@ public class ViewFood extends AppCompatActivity implements SelectListener {
 
     }
 
+
     private void EventChangeListener() {
-        FoodDB.collection("Foods").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        FoodDB.collection("Foods").whereEqualTo("Status", "Active").orderBy("TimeStamp", Query.Direction.DESCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
@@ -65,6 +74,7 @@ public class ViewFood extends AppCompatActivity implements SelectListener {
                     if(progressDialog.isShowing())
                         progressDialog.dismiss();
                     Log.e("FireStore Error", error.getMessage());
+                    Toast.makeText(ViewFood.this, "There is an issue connecting to server", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
                     for (DocumentChange dc : value.getDocumentChanges()){
@@ -79,7 +89,6 @@ public class ViewFood extends AppCompatActivity implements SelectListener {
                             progressDialog.dismiss();
                     }
                 }
-
             }
         });
     }

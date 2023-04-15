@@ -32,6 +32,12 @@
         android:testOnly="true"
         android:theme="@style/Theme.Material3.Light" >
         <activity
+            android:name="com.example.shareit.Receiver_Side"
+            android:exported="false" />
+        <activity
+            android:name="com.example.shareit.Donor_Side"
+            android:exported="false" />
+        <activity
             android:name="com.example.shareit.donatecloth"
             android:exported="false" />
         <activity

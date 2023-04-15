@@ -62,7 +62,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#b7e2f3"
         android:text="@string/login"
-        android:textColor="#1E1E1E" />
+        android:textColor="#1E1E1E"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/to_register"
