@@ -3225,6 +3225,7 @@ int id register_name 0x7f080173
 int id register_password 0x7f080174
 int id register_phone 0x7f080175
 int id register_progressbar 0x7f080176
+int id register_user_type 0x7f080215
 int id reverseSawtooth 0x7f080177
 int id right 0x7f080178
 int id rightToLeft 0x7f080179
@@ -3492,8 +3493,10 @@ int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_donatecloth 0x7f0b001c
 int layout activity_donatetype 0x7f0b001d
+int layout activity_donor_side 0x7f0b0074
 int layout activity_login 0x7f0b001e
 int layout activity_main 0x7f0b001f
+int layout activity_receiver_side 0x7f0b0075
 int layout activity_register 0x7f0b0020
 int layout activity_send_food 0x7f0b0021
 int layout activity_view_food 0x7f0b0022
@@ -3577,6 +3580,7 @@ int layout select_dialog_item_material 0x7f0b006f
 int layout select_dialog_multichoice_material 0x7f0b0070
 int layout select_dialog_singlechoice_material 0x7f0b0071
 int layout support_simple_spinner_dropdown_item 0x7f0b0072
+int layout userclass 0x7f0b0073
 int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_foreground 0x7f0d0001
 int mipmap ic_launcher_round 0x7f0d0002

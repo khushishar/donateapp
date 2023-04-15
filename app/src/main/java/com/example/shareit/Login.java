@@ -114,15 +114,12 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
                                     Toast.makeText(Login.this, "LoggedIn Successfully.",Toast.LENGTH_SHORT).show();
                                     Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent_main);
                                     finish();
 
                                 } else {
-                                    // If sign in fails, display a message to the user.
-
                                     Toast.makeText(Login.this, "LogIn failed.",Toast.LENGTH_SHORT).show();
 
                                 }

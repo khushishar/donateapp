@@ -50,6 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Type"
+        android:textColorHint="#1C1B1F"
+        app:boxStrokeColor="@color/black"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -104,7 +106,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#b7e2f3"
         android:text="@string/register_btn"
-        android:textColor="#090909" />
+        android:textColor="#090909"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/to_login"

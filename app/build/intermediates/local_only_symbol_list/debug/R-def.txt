@@ -37,6 +37,7 @@ id register_name
 id register_password
 id register_phone
 id register_progressbar
+id register_user_type
 id sendFood_Btn
 id sendFood_FName
 id sendFood_Quantity
@@ -45,12 +46,15 @@ id to_register
 id user_details
 layout activity_donatecloth
 layout activity_donatetype
+layout activity_donor_side
 layout activity_login
 layout activity_main
+layout activity_receiver_side
 layout activity_register
 layout activity_send_food
 layout activity_view_food
 layout foodcard_item
+layout userclass
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
