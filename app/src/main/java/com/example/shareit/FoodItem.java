@@ -1,19 +1,43 @@
 package com.example.shareit;
 
 public class FoodItem {
-    String DonorName, DonorNumber, FoodName, FoodCount;
+    String DonorID, DonorName, DonorNumber, FoodName, FoodCount;
     Double  Latitude, Longitude;
+    Boolean Status;
 
-    public FoodItem() {
+    public Boolean getStatus() {
+        return Status;
     }
 
-    public FoodItem(String donorName, String donorNumber, String foodName, String foodCount, Double latitude, Double longitude) {
+    public void setStatus(Boolean status) {
+        Status = status;
+    }
+
+    public FoodItem(String donorID, String donorName, String donorNumber, String foodName, String foodCount, Double latitude, Double longitude, Boolean status) {
+        DonorID = donorID;
         DonorName = donorName;
         DonorNumber = donorNumber;
         FoodName = foodName;
         FoodCount = foodCount;
-        Latitude = Latitude;
-        Longitude = Longitude;
+        Latitude = latitude;
+        Longitude = longitude;
+        Status = status;
+    }
+
+    public FoodItem() {
+    }
+
+
+    public String getDonorID() {
+        return DonorID;
+    }
+
+    public void setDonorID(String donorID) {
+        DonorID = donorID;
+    }
+
+    public void setLatitude(Double latitude) {
+        Latitude = latitude;
     }
 
     public String getDonorName() {

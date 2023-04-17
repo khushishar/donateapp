@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.shareit.app-mergeDebugResources-32:/values-de/values-de.xml",
+            "outputFile": "com.example.shareit.app-mergeDebugResources-34:/values-de/values-de.xml",
             "map": [
                 {
                     "source": "C:\\Users\\chira\\.gradle\\caches\\transforms-3\\4a7f83fd254fa05cc8acd7d644c57a96\\transformed\\play-services-base-18.1.0\\res\\values-de\\values.xml",

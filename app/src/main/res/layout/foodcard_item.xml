@@ -34,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/foodDonorName"
-                android:textSize="26sp"/>
+                android:textSize="26sp"
+                android:ellipsize="end"/>
 
         </LinearLayout>
 
@@ -54,7 +55,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/foodDonorNumber"
-                android:textSize="26sp"/>
+                android:textSize="26sp"
+                android:ellipsize="end"/>
 
         </LinearLayout>
 
@@ -74,7 +76,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/foodItemName"
-                android:textSize="26sp"/>
+                android:textSize="26sp"
+                android:ellipsize="end"/>
 
         </LinearLayout>
 
@@ -94,7 +97,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/foodItemCount"
-                android:textSize="26sp"/>
+                android:textSize="26sp"
+                android:ellipsize="end"/>
 
         </LinearLayout>
 

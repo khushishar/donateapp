@@ -12,7 +12,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -21,12 +24,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class ViewFood extends AppCompatActivity implements SelectListener {
+public class ViewFood extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<FoodItem> FoodItemArrayList;
-    MyAdapter myAdapter;
-    FirebaseFirestore FoodDB;
+    private FoodAdapter foodAdapter;
+    private FirebaseFirestore DB = FirebaseFirestore.getInstance();
+    private CollectionReference FoodDB = DB.collection("Foods");
     ProgressDialog progressDialog;
 
 
@@ -46,58 +49,51 @@ public class ViewFood extends AppCompatActivity implements SelectListener {
         progressDialog.setMessage("Fetching Data...");
         progressDialog.show();
 
+        setUpRecyclerView();
+
+    }
+
+    private void setUpRecyclerView() {
+
+        Query query = FoodDB.whereEqualTo("Status", true).orderBy("TimeStamp", Query.Direction.DESCENDING);
+        FirestoreRecyclerOptions<FoodItem> foodOptions = new FirestoreRecyclerOptions.Builder<FoodItem>()
+                .setQuery(query, FoodItem.class)
+                .build();
+
+        foodAdapter = new FoodAdapter(foodOptions);
         recyclerView = findViewById(R.id.foodRecycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        FoodDB = FirebaseFirestore.getInstance();
 
-        FoodItemArrayList = new ArrayList<FoodItem>();
-        myAdapter = new MyAdapter(ViewFood.this, FoodItemArrayList, this);
+        if(progressDialog.isShowing())
+            progressDialog.dismiss();
 
-        recyclerView.setAdapter(myAdapter);
-        EventChangeListener();
+        recyclerView.setAdapter(foodAdapter);
 
-    }
-
-
-    private void EventChangeListener() {
-        FoodDB.collection("Foods").whereEqualTo("Status", "Active").orderBy("TimeStamp", Query.Direction.DESCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        foodAdapter.setOnFoodItemClickListener(new FoodAdapter.onFoodItemClickListener() {
             @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-
-                if(value.isEmpty()){
-                    Toast.makeText(ViewFood.this, "There are no items ", Toast.LENGTH_SHORT).show();
-                    if(progressDialog.isShowing())
-                        progressDialog.dismiss();
-                }
-                else if (error != null) {
-                    if(progressDialog.isShowing())
-                        progressDialog.dismiss();
-                    Log.e("FireStore Error", error.getMessage());
-                    Toast.makeText(ViewFood.this, "There is an issue connecting to server", Toast.LENGTH_SHORT).show();
-                    return;
-                }else{
-                    for (DocumentChange dc : value.getDocumentChanges()){
-                        if(dc.getType() == DocumentChange.Type.ADDED ){
-                            FoodItemArrayList.add(dc.getDocument().toObject(FoodItem.class));
-                        }
-                        if(dc.getType() == DocumentChange.Type.REMOVED){
-                            FoodItemArrayList.remove(dc.getDocument().toObject(FoodItem.class));
-                        }
-                        myAdapter.notifyDataSetChanged();
-                        if(progressDialog.isShowing())
-                            progressDialog.dismiss();
-                    }
-                }
+            public void onFoodItemClick(DocumentSnapshot documentSnapshot, int position) {
+                FoodItem foodItem = documentSnapshot.toObject(FoodItem.class);
+                Toast.makeText(ViewFood.this, "Donor Name : " + foodItem.DonorName + "\nDonor Number: " + foodItem.DonorNumber, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("http://maps.google.com/maps?daddr=" + foodItem.Latitude + "," + foodItem.Longitude));
+                startActivity(intent);
+                finish();
             }
         });
+
     }
 
     @Override
-    public void onItemClick(FoodItem foodItem) {
-        Toast.makeText(this, "Donor Name : " + foodItem.DonorName + "\nDonor Number: " + foodItem.DonorNumber, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                Uri.parse("http://maps.google.com/maps?daddr=" + foodItem.Latitude + "," + foodItem.Longitude));
-        startActivity(intent);
+    protected void onStart() {
+        super.onStart();
+        foodAdapter.startListening();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        foodAdapter.stopListening();
+    }
+
 }

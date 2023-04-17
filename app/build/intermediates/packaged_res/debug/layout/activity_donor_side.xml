@@ -21,34 +21,35 @@
 
 
     <Button
-        android:id="@+id/donateclothes"
+        android:id="@+id/donateItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="0dp"
         android:backgroundTint="#b7e2f3"
-        android:text="Clothes"
+        android:text="Donate"
         android:textColor="#222121"
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/donateFood"
+        android:id="@+id/viewContributions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="#b7e2f3"
-        android:text="Food"
+        android:text="Contributions"
         android:textColor="#202020"
         android:textSize="18sp" />
-    <Button
-        android:id="@+id/donateshelter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#b7e2f3"
-        android:text="Shelter"
-        android:textColor="#202020"
-        android:textSize="18sp" />
+
+<!--    <Button-->
+<!--        android:id="@+id/donateshelter"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:backgroundTint="#b7e2f3"-->
+<!--        android:text="Shelter"-->
+<!--        android:textColor="#202020"-->
+<!--        android:textSize="18sp" />-->
 
     <Button
         android:id="@+id/logout"

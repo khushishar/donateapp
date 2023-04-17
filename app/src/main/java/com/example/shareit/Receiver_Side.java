@@ -75,7 +75,7 @@ public class Receiver_Side extends AppCompatActivity {
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_sendFood = new Intent(getApplicationContext(), sendFood.class);
+                Intent intent_sendFood = new Intent(getApplicationContext(), ViewFood.class);
                 startActivity(intent_sendFood);
 //                finish();
             }
@@ -84,7 +84,7 @@ public class Receiver_Side extends AppCompatActivity {
         cloth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_getFood = new Intent(getApplicationContext(),donatecloth.class);
+                Intent intent_getFood = new Intent(getApplicationContext(),ViewClothes.class);
                 startActivity(intent_getFood);
 //                finish();
 
@@ -94,7 +94,7 @@ public class Receiver_Side extends AppCompatActivity {
         shelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_getFood = new Intent(getApplicationContext(), ViewFood.class);
+                Intent intent_getFood = new Intent(getApplicationContext(), ViewShelters.class);
                 startActivity(intent_getFood);
 //                finish();
             }

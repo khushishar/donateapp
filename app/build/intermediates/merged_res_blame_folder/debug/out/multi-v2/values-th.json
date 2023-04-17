@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.shareit.app-mergeDebugResources-32:/values-th/values-th.xml",
+            "outputFile": "com.example.shareit.app-mergeDebugResources-34:/values-th/values-th.xml",
             "map": [
                 {
                     "source": "C:\\Users\\chira\\.gradle\\caches\\transforms-3\\d202b99fdcb0faf422c374addae72b3c\\transformed\\browser-1.4.0\\res\\values-th\\values-th.xml",

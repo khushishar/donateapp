@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Donor_Side extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 100;
-    Button logout,cloth,food,shelter;
+    Button logout,donate,viewContributions;
     TextView userDetail;
     FirebaseUser user;
     DatabaseReference UserDB;
@@ -35,10 +35,11 @@ public class Donor_Side extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
+
         logout = findViewById(R.id.logout);
-        cloth= findViewById(R.id.donateclothes);
-        food = findViewById(R.id.donateFood);
-        shelter=findViewById(R.id.donateshelter);
+        donate = findViewById(R.id.donateItem);
+        viewContributions = findViewById(R.id.viewContributions);
+
         userDetail = findViewById(R.id.user_details);
         user = mAuth.getCurrentUser();
 
@@ -72,33 +73,28 @@ public class Donor_Side extends AppCompatActivity {
             }
         });
 
-        food.setOnClickListener(new View.OnClickListener() {
+        donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_sendFood = new Intent(getApplicationContext(), sendFood.class);
-                startActivity(intent_sendFood);
-//                finish();
+//                Intent intent_donate = new Intent(getApplicationContext(), DonateItem.class);
+//                startActivity(intent_donate);
+
+                Intent intent = new Intent(getApplicationContext(), sendFood.class);
+                startActivity(intent);
             }
         });
 
-        cloth.setOnClickListener(new View.OnClickListener() {
+        viewContributions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_getFood = new Intent(getApplicationContext(),donatecloth.class);
-                startActivity(intent_getFood);
-//                finish();
+//                Intent intent_contributions = new Intent(getApplicationContext(), View_Contributions.class);
+//                startActivity(intent_contributions);
 
-
+                Intent intent = new Intent(getApplicationContext(), ViewFood.class);
+                startActivity(intent);
             }
         });
-        shelter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_getFood = new Intent(getApplicationContext(), ViewFood.class);
-                startActivity(intent_getFood);
-//                finish();
-            }
-        });
+
     }
 
 
