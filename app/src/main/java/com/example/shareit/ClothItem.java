@@ -7,7 +7,7 @@ public class ClothItem {
 
     String DonorID, DonorName, DonorNumber, ClothName, ClothCount;
     GeoPoint Location;
-    Timestamp Timestamp;
+    Timestamp TimeStamp;
     Boolean Status;
 
     public ClothItem(String donorID, String donorName, String donorNumber, String clothName, String clothCount, GeoPoint location, Timestamp timestamp, Boolean status) {
@@ -17,7 +17,7 @@ public class ClothItem {
         ClothName = clothName;
         ClothCount = clothCount;
         Location = location;
-        Timestamp = timestamp;
+        TimeStamp = timestamp;
         Status = status;
     }
 
@@ -30,11 +30,11 @@ public class ClothItem {
     }
 
     public com.google.firebase.Timestamp getTimestamp() {
-        return Timestamp;
+        return TimeStamp;
     }
 
     public void setTimestamp(com.google.firebase.Timestamp timestamp) {
-        Timestamp = timestamp;
+        TimeStamp = timestamp;
     }
 
     public ClothItem() {

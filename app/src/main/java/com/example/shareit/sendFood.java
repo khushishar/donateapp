@@ -8,7 +8,6 @@ import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
@@ -16,9 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationAvailability;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
@@ -32,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -163,11 +161,10 @@ public class sendFood extends AppCompatActivity {
                 FoodItem.put("DonorNumber", UserPhone);
                 FoodItem.put("FoodName", String.valueOf(foodName.getText()));
                 FoodItem.put("FoodCount", String.valueOf(foodQuantity.getText()));
-                FoodItem.put("Longitude", LocLongitude);
-                FoodItem.put("Latitude", LocLatitude);
-                FoodItem.put("TimeStamp", com.google.firebase.Timestamp.now());
+                FoodItem.put("Location", new GeoPoint(LocLatitude, LocLongitude));
+                FoodItem.put("TimeStamp", com.google.firebase.Timestamp.now().toDate());
                 FoodItem.put("MilliSec", timestamp.getTime());
-                FoodItem.put("Status", "Active");
+                FoodItem.put("Status", true);
 
                 FoodDB.collection("Foods").add(FoodItem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override

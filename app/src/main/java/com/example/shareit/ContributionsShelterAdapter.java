@@ -40,7 +40,7 @@ public class ContributionsShelterAdapter extends FirestoreRecyclerAdapter<Shelte
     protected void onBindViewHolder (@NonNull ContributionsShelterAdapter.ShelterViewHolder holder,
                                      int position, @NonNull ShelterItem model){
 
-        holder.Date.setText(String.valueOf(model.Timestamp.toDate()));
+        holder.Date.setText(String.valueOf(model.TimeStamp.toDate().toLocaleString()));
         holder.ShelterDesc.setText(String.valueOf(model.ShelterDescription));
         holder.ShelterCount.setText(String.valueOf(model.ShelterAvailability));
 

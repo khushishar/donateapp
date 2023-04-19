@@ -40,7 +40,7 @@ public class ContributionsClothAdapter extends FirestoreRecyclerAdapter<ClothIte
         protected void onBindViewHolder (@NonNull ContributionsClothAdapter.ClothViewHolder holder,
         int position, @NonNull ClothItem model){
 
-        holder.Date.setText(String.valueOf(model.Timestamp.toDate()));
+        holder.Date.setText(String.valueOf(model.TimeStamp.toDate().toLocaleString()));
         holder.ClothName.setText(String.valueOf(model.ClothName));
         holder.ClothCount.setText(String.valueOf(model.ClothCount));
 

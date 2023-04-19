@@ -39,7 +39,7 @@ public class ContributionsFoodAdapter extends FirestoreRecyclerAdapter<FoodItem,
     @Override
     protected void onBindViewHolder(@NonNull ContributionsFoodAdapter.FoodViewHolder holder, int position, @NonNull FoodItem model) {
 
-        holder.Date.setText(String.valueOf(model.Timestamp.toDate()));
+        holder.Date.setText(model.TimeStamp.toDate().toLocaleString());
         holder.FoodName.setText(String.valueOf(model.FoodName));
         holder.FoodCount.setText(String.valueOf(model.FoodCount));
 

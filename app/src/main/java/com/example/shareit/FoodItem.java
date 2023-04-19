@@ -6,7 +6,7 @@ import com.google.firebase.firestore.GeoPoint;
 public class FoodItem {
     String DonorID, DonorName, DonorNumber, FoodName, FoodCount;
     Boolean Status;
-    Timestamp Timestamp;
+    Timestamp TimeStamp;
     GeoPoint Location;
 
 
@@ -25,7 +25,7 @@ public class FoodItem {
         FoodName = foodName;
         FoodCount = foodCount;
         Status = status;
-        Timestamp = timestamp;
+        TimeStamp = timestamp;
         Location = location;
     }
 
@@ -38,11 +38,11 @@ public class FoodItem {
     }
 
     public com.google.firebase.Timestamp getTimestamp() {
-        return Timestamp;
+        return TimeStamp;
     }
 
     public void setTimestamp(com.google.firebase.Timestamp timestamp) {
-        Timestamp = timestamp;
+        TimeStamp = timestamp;
     }
 
     public FoodItem() {

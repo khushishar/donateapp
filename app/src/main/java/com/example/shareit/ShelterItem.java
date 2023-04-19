@@ -7,7 +7,7 @@ public class ShelterItem {
 
     String DonorID, DonorName, DonorNumber, ShelterDescription, ShelterAvailability;
     Boolean Status;
-    Timestamp Timestamp;
+    Timestamp TimeStamp;
     GeoPoint Location;
 
     public ShelterItem(String donorID, String donorName, String donorNumber, String shelterDescription, String shelterAvailability, Timestamp timestamp, Boolean status, GeoPoint location) {
@@ -18,7 +18,7 @@ public class ShelterItem {
         ShelterAvailability = shelterAvailability;
         Location = location;
         Status = status;
-        Timestamp = timestamp;
+        TimeStamp = timestamp;
     }
 
     public GeoPoint getLocation() {
@@ -82,10 +82,10 @@ public class ShelterItem {
     }
 
     public com.google.firebase.Timestamp getTimestamp() {
-        return Timestamp;
+        return TimeStamp;
     }
 
     public void setTimestamp(com.google.firebase.Timestamp timestamp) {
-        Timestamp = timestamp;
+        TimeStamp = timestamp;
     }
 }

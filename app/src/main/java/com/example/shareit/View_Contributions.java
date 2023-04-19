@@ -61,7 +61,7 @@ public class View_Contributions extends AppCompatActivity {
 
         contributionsShelterAdapter = new ContributionsShelterAdapter(shelterOptions);
         shelterContributions = findViewById(R.id.shelter_recycler);
-        shelterContributions.setHasFixedSize(true);
+        shelterContributions.setHasFixedSize(false);
         shelterContributions.setLayoutManager(new LinearLayoutManager(this));
         shelterContributions.setAdapter(contributionsShelterAdapter);
 
@@ -76,7 +76,7 @@ public class View_Contributions extends AppCompatActivity {
 
         contributionsClothAdapter = new ContributionsClothAdapter(clothOptions);
         clothContributions = findViewById(R.id.cloth_recycler);
-        clothContributions.setHasFixedSize(true);
+        clothContributions.setHasFixedSize(false);
         clothContributions.setLayoutManager(new LinearLayoutManager(this));
         clothContributions.setAdapter(contributionsClothAdapter);
 
@@ -91,11 +91,10 @@ public class View_Contributions extends AppCompatActivity {
 
         contributionsFoodAdapter = new ContributionsFoodAdapter(foodOptions);
         foodContributions = findViewById(R.id.food_recycler);
-        foodContributions.setHasFixedSize(true);
+        foodContributions.setHasFixedSize(false);
         foodContributions.setLayoutManager(new LinearLayoutManager(this));
         foodContributions.setAdapter(contributionsFoodAdapter);
 
-        Toast.makeText(this, user.getUid(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
