@@ -623,6 +623,21 @@
             ]
         },
         {
+            "outputFile": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\values-h480dp-land-v13_values-h480dp-land-v13.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\chira\\.gradle\\caches\\transforms-3\\488519bf88b141369e1f2b3fffc88e8e\\transformed\\material-1.8.0\\res\\values-h480dp-land-v13\\values-h480dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,170,226,293,358,413,478,547",
+                        "endColumns": "58,55,55,66,64,54,64,68,68",
+                        "endOffsets": "109,165,221,288,353,408,473,542,611"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\values-si_values-si.arsc.flat",
             "map": [
                 {
@@ -727,21 +742,6 @@
                         "startOffsets": "10590",
                         "endColumns": "100",
                         "endOffsets": "10686"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\values-h480dp-land-v13_values-h480dp-land-v13.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\chira\\.gradle\\caches\\transforms-3\\488519bf88b141369e1f2b3fffc88e8e\\transformed\\material-1.8.0\\res\\values-h480dp-land-v13\\values-h480dp-land-v13.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,170,226,293,358,413,478,547",
-                        "endColumns": "58,55,55,66,64,54,64,68,68",
-                        "endOffsets": "109,165,221,288,353,408,473,542,611"
                     }
                 }
             ]

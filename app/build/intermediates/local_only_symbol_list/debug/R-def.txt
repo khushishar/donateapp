@@ -25,6 +25,10 @@ id clothItemCount
 id clothItemName
 id clothRecycler
 id cloth_recycler
+id contributionsItemCard
+id contributionsItemCount
+id contributionsItemDate
+id contributionsItemName
 id donateFood
 id donateItem
 id donateclothes
@@ -36,14 +40,11 @@ id foodItemCount
 id foodItemName
 id foodRecycler
 id food_recycler
-id frameLayout
 id login_btn
 id login_email
 id login_password
 id login_progressbar
 id logout
-id provideclothes
-id receiveclothes
 id register_btn
 id register_email
 id register_name
@@ -66,7 +67,6 @@ id to_register
 id user_details
 id viewContributions
 layout activity_donate_item
-layout activity_donatecloth
 layout activity_donor_side
 layout activity_login
 layout activity_main
@@ -78,6 +78,7 @@ layout activity_view_contributions
 layout activity_view_food
 layout activity_view_shelters
 layout clothcard_item
+layout contributionscard_item
 layout foodcard_item
 layout sheltercard_item
 layout userclass

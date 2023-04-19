@@ -224,17 +224,17 @@
 119                android:value="com.google.firebase.components.ComponentRegistrar" />
 119-->[com.google.firebase:firebase-auth:21.3.0] C:\Users\chira\.gradle\caches\transforms-3\721ace5ce447361e1fd834a1bf240755\transformed\firebase-auth-21.3.0\AndroidManifest.xml:71:17-82
 120            <meta-data
-120-->[com.google.firebase:firebase-database:20.2.0] C:\Users\chira\.gradle\caches\transforms-3\d85b861afa91ff52a96a65fa33862d3f\transformed\firebase-database-20.2.0\AndroidManifest.xml:31:13-33:85
-121                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-121-->[com.google.firebase:firebase-database:20.2.0] C:\Users\chira\.gradle\caches\transforms-3\d85b861afa91ff52a96a65fa33862d3f\transformed\firebase-database-20.2.0\AndroidManifest.xml:32:17-109
+120-->[com.google.firebase:firebase-firestore:24.5.0] C:\Users\chira\.gradle\caches\transforms-3\5b4ad17ca9ada7b3a8f34fff9300b792\transformed\firebase-firestore-24.5.0\AndroidManifest.xml:19:13-21:85
+121                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+121-->[com.google.firebase:firebase-firestore:24.5.0] C:\Users\chira\.gradle\caches\transforms-3\5b4ad17ca9ada7b3a8f34fff9300b792\transformed\firebase-firestore-24.5.0\AndroidManifest.xml:20:17-111
 122                android:value="com.google.firebase.components.ComponentRegistrar" />
-122-->[com.google.firebase:firebase-database:20.2.0] C:\Users\chira\.gradle\caches\transforms-3\d85b861afa91ff52a96a65fa33862d3f\transformed\firebase-database-20.2.0\AndroidManifest.xml:33:17-82
+122-->[com.google.firebase:firebase-firestore:24.5.0] C:\Users\chira\.gradle\caches\transforms-3\5b4ad17ca9ada7b3a8f34fff9300b792\transformed\firebase-firestore-24.5.0\AndroidManifest.xml:21:17-82
 123            <meta-data
-123-->[com.google.firebase:firebase-firestore:23.0.1] C:\Users\chira\.gradle\caches\transforms-3\545c1e9b1ea133b54dcd67a7d2ad6988\transformed\firebase-firestore-23.0.1\AndroidManifest.xml:20:13-22:85
-124                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-124-->[com.google.firebase:firebase-firestore:23.0.1] C:\Users\chira\.gradle\caches\transforms-3\545c1e9b1ea133b54dcd67a7d2ad6988\transformed\firebase-firestore-23.0.1\AndroidManifest.xml:21:17-111
+123-->[com.google.firebase:firebase-database:20.2.0] C:\Users\chira\.gradle\caches\transforms-3\d85b861afa91ff52a96a65fa33862d3f\transformed\firebase-database-20.2.0\AndroidManifest.xml:31:13-33:85
+124                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+124-->[com.google.firebase:firebase-database:20.2.0] C:\Users\chira\.gradle\caches\transforms-3\d85b861afa91ff52a96a65fa33862d3f\transformed\firebase-database-20.2.0\AndroidManifest.xml:32:17-109
 125                android:value="com.google.firebase.components.ComponentRegistrar" />
-125-->[com.google.firebase:firebase-firestore:23.0.1] C:\Users\chira\.gradle\caches\transforms-3\545c1e9b1ea133b54dcd67a7d2ad6988\transformed\firebase-firestore-23.0.1\AndroidManifest.xml:22:17-82
+125-->[com.google.firebase:firebase-database:20.2.0] C:\Users\chira\.gradle\caches\transforms-3\d85b861afa91ff52a96a65fa33862d3f\transformed\firebase-database-20.2.0\AndroidManifest.xml:33:17-82
 126        </service>
 127
 128        <activity

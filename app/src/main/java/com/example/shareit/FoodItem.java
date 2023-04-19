@@ -1,9 +1,14 @@
 package com.example.shareit;
 
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.GeoPoint;
+
 public class FoodItem {
     String DonorID, DonorName, DonorNumber, FoodName, FoodCount;
-    Double  Latitude, Longitude;
     Boolean Status;
+    Timestamp Timestamp;
+    GeoPoint Location;
+
 
     public Boolean getStatus() {
         return Status;
@@ -13,15 +18,31 @@ public class FoodItem {
         Status = status;
     }
 
-    public FoodItem(String donorID, String donorName, String donorNumber, String foodName, String foodCount, Double latitude, Double longitude, Boolean status) {
+    public FoodItem(String donorID, String donorName, String donorNumber, String foodName, String foodCount,  Boolean status, Timestamp timestamp, GeoPoint location) {
         DonorID = donorID;
         DonorName = donorName;
         DonorNumber = donorNumber;
         FoodName = foodName;
         FoodCount = foodCount;
-        Latitude = latitude;
-        Longitude = longitude;
         Status = status;
+        Timestamp = timestamp;
+        Location = location;
+    }
+
+    public GeoPoint getLocation() {
+        return Location;
+    }
+
+    public void setLocation(GeoPoint location) {
+        Location = location;
+    }
+
+    public com.google.firebase.Timestamp getTimestamp() {
+        return Timestamp;
+    }
+
+    public void setTimestamp(com.google.firebase.Timestamp timestamp) {
+        Timestamp = timestamp;
     }
 
     public FoodItem() {
@@ -36,9 +57,6 @@ public class FoodItem {
         DonorID = donorID;
     }
 
-    public void setLatitude(Double latitude) {
-        Latitude = latitude;
-    }
 
     public String getDonorName() {
         return DonorName;
@@ -72,19 +90,5 @@ public class FoodItem {
         FoodCount = foodCount;
     }
 
-    public Double getLatitude() {
-        return Latitude;
-    }
 
-    public void setLocLatitude(Double latitude) {
-        Latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return Longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        Longitude = longitude;
-    }
 }

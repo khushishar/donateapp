@@ -1,20 +1,32 @@
 package com.example.shareit;
 
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.GeoPoint;
+
 public class ShelterItem {
 
-    String DonorID, DonorName, DonorNumber, ShelterDesc, Availability;
-    Double  Latitude, Longitude;
+    String DonorID, DonorName, DonorNumber, ShelterDescription, ShelterAvailability;
     Boolean Status;
+    Timestamp Timestamp;
+    GeoPoint Location;
 
-    public ShelterItem(String donorID, String donorName, String donorNumber, String shelterDesc, String availability, Double latitude, Double longitude, Boolean status) {
+    public ShelterItem(String donorID, String donorName, String donorNumber, String shelterDescription, String shelterAvailability, Timestamp timestamp, Boolean status, GeoPoint location) {
         DonorID = donorID;
         DonorName = donorName;
         DonorNumber = donorNumber;
-        ShelterDesc = shelterDesc;
-        Availability = availability;
-        Latitude = latitude;
-        Longitude = longitude;
+        ShelterDescription = shelterDescription;
+        ShelterAvailability = shelterAvailability;
+        Location = location;
         Status = status;
+        Timestamp = timestamp;
+    }
+
+    public GeoPoint getLocation() {
+        return Location;
+    }
+
+    public void setLocation(GeoPoint location) {
+        Location = location;
     }
 
     public Boolean getStatus() {
@@ -53,36 +65,27 @@ public class ShelterItem {
         DonorNumber = donorNumber;
     }
 
-    public String getShelterDesc() {
-        return ShelterDesc;
+    public String getShelterDescription() {
+        return ShelterDescription;
     }
 
-    public void setShelterDesc(String shelterDesc) {
-        ShelterDesc = shelterDesc;
+    public void setShelterDescription(String shelterDescription) {
+        ShelterDescription = shelterDescription;
     }
 
-    public String getAvailability() {
-        return Availability;
+    public String getShelterAvailability() {
+        return ShelterAvailability;
     }
 
-    public void setAvailability(String availability) {
-        Availability = availability;
+    public void setShelterAvailability(String shelterAvailability) {
+        ShelterAvailability = shelterAvailability;
     }
 
-    public Double getLatitude() {
-        return Latitude;
+    public com.google.firebase.Timestamp getTimestamp() {
+        return Timestamp;
     }
 
-    public void setLatitude(Double latitude) {
-        Latitude = latitude;
+    public void setTimestamp(com.google.firebase.Timestamp timestamp) {
+        Timestamp = timestamp;
     }
-
-    public Double getLongitude() {
-        return Longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        Longitude = longitude;
-    }
-
 }

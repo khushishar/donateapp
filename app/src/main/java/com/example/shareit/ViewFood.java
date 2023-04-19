@@ -1,6 +1,4 @@
 package com.example.shareit;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,20 +7,13 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
 
 public class ViewFood extends AppCompatActivity {
 
@@ -76,7 +67,7 @@ public class ViewFood extends AppCompatActivity {
                 FoodItem foodItem = documentSnapshot.toObject(FoodItem.class);
                 Toast.makeText(ViewFood.this, "Donor Name : " + foodItem.DonorName + "\nDonor Number: " + foodItem.DonorNumber, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                        Uri.parse("http://maps.google.com/maps?daddr=" + foodItem.Latitude + "," + foodItem.Longitude));
+                        Uri.parse("http://maps.google.com/maps?daddr=" + foodItem.Location.getLatitude() + "," + foodItem.Location.getLongitude()));
                 startActivity(intent);
                 finish();
             }

@@ -1,20 +1,40 @@
 package com.example.shareit;
 
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.GeoPoint;
+
 public class ClothItem {
 
     String DonorID, DonorName, DonorNumber, ClothName, ClothCount;
-    Double  Latitude, Longitude;
+    GeoPoint Location;
+    Timestamp Timestamp;
     Boolean Status;
 
-    public ClothItem(String donorID, String donorName, String donorNumber, String clothName, String clothCount, Double latitude, Double longitude, Boolean status) {
+    public ClothItem(String donorID, String donorName, String donorNumber, String clothName, String clothCount, GeoPoint location, Timestamp timestamp, Boolean status) {
         DonorID = donorID;
         DonorName = donorName;
         DonorNumber = donorNumber;
         ClothName = clothName;
         ClothCount = clothCount;
-        Latitude = latitude;
-        Longitude = longitude;
+        Location = location;
+        Timestamp = timestamp;
         Status = status;
+    }
+
+    public GeoPoint getLocation() {
+        return Location;
+    }
+
+    public void setLocation(GeoPoint location) {
+        Location = location;
+    }
+
+    public com.google.firebase.Timestamp getTimestamp() {
+        return Timestamp;
+    }
+
+    public void setTimestamp(com.google.firebase.Timestamp timestamp) {
+        Timestamp = timestamp;
     }
 
     public ClothItem() {
@@ -68,19 +88,4 @@ public class ClothItem {
         ClothCount = clothCount;
     }
 
-    public Double getLatitude() {
-        return Latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        Latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return Longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        Longitude = longitude;
-    }
 }

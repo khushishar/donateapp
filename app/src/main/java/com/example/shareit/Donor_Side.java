@@ -87,11 +87,8 @@ public class Donor_Side extends AppCompatActivity {
         viewContributions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent_contributions = new Intent(getApplicationContext(), View_Contributions.class);
-//                startActivity(intent_contributions);
-
-                Intent intent = new Intent(getApplicationContext(), ViewFood.class);
-                startActivity(intent);
+                Intent intent_contributions = new Intent(getApplicationContext(), View_Contributions.class);
+                startActivity(intent_contributions);
             }
         });
 

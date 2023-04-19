@@ -3006,6 +3006,10 @@ id content
 id contentPanel
 id contiguous
 id continuousVelocity
+id contributionsItemCard
+id contributionsItemCount
+id contributionsItemDate
+id contributionsItemName
 id coordinator
 id cos
 id counterclockwise
@@ -3085,7 +3089,6 @@ id foodRecycler
 id food_recycler
 id forever
 id fragment_container_view_tag
-id frameLayout
 id frost
 id fullscreen_header
 id ghost_view
@@ -3237,10 +3240,8 @@ id postLayout
 id pressed
 id progress_circular
 id progress_horizontal
-id provideclothes
 id radio
 id ratio
-id receiveclothes
 id rectangles
 id register_btn
 id register_email
@@ -3524,7 +3525,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_donate_item
-layout activity_donatecloth
 layout activity_donor_side
 layout activity_login
 layout activity_main
@@ -3538,6 +3538,7 @@ layout activity_view_shelters
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout clothcard_item
+layout contributionscard_item
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

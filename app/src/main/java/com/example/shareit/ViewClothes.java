@@ -67,7 +67,7 @@ public class ViewClothes extends AppCompatActivity {
                 ClothItem clothItem = documentSnapshot.toObject(ClothItem.class);
                 Toast.makeText(ViewClothes.this, "Donor Name : " + clothItem.DonorName + "\nDonor Number: " + clothItem.DonorNumber, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                        Uri.parse("http://maps.google.com/maps?daddr=" + clothItem.Latitude + "," + clothItem.Longitude));
+                        Uri.parse("http://maps.google.com/maps?daddr=" + clothItem.Location.getLatitude() + "," + clothItem.Location.getLongitude()));
                 startActivity(intent);
                 finish();
             }
