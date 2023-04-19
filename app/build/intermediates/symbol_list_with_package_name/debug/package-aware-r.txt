@@ -1384,6 +1384,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color green_card
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color ic_launcher_background
@@ -1921,6 +1922,7 @@ color primary_text_disabled_material_light
 color purple_200
 color purple_500
 color purple_700
+color red_card
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -1938,6 +1940,7 @@ color teal_700
 color tooltip_background_dark
 color tooltip_background_light
 color white
+color yellow_card
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material

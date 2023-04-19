@@ -1,6 +1,7 @@
 package com.example.shareit;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,12 +30,20 @@ public class ContributionsShelterAdapter extends FirestoreRecyclerAdapter<Shelte
         return new ContributionsShelterAdapter.ShelterViewHolder(v);
     }
 
-    @Override
-    public void onDataChanged () {
-        super.onDataChanged();
-        if (getItemCount() == 0)
-            Toast.makeText(context, "There are no Food items", Toast.LENGTH_SHORT).show();
+    public void deleteItem(int position){
+        getSnapshots().getSnapshot(position).getReference().delete();
     }
+
+    public void changeStatus(int position){
+        getSnapshots().getSnapshot(position).getReference().update("Status", false);
+    }
+
+//    @Override
+//    public void onDataChanged () {
+//        super.onDataChanged();
+//        if (getItemCount() == 0)
+//            Toast.makeText(context, "There are no Food items", Toast.LENGTH_SHORT).show();
+//    }
 
     @Override
     protected void onBindViewHolder (@NonNull ContributionsShelterAdapter.ShelterViewHolder holder,
@@ -43,6 +52,9 @@ public class ContributionsShelterAdapter extends FirestoreRecyclerAdapter<Shelte
         holder.Date.setText(String.valueOf(model.TimeStamp.toDate().toLocaleString()));
         holder.ShelterDesc.setText(String.valueOf(model.ShelterDescription));
         holder.ShelterCount.setText(String.valueOf(model.ShelterAvailability));
+
+        if(!model.Status)
+            holder.cardView.setCardBackgroundColor(Color.parseColor("#EEFC5E"));
 
     }
 

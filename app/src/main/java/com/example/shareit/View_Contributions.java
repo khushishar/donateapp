@@ -1,10 +1,14 @@
 package com.example.shareit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -17,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 public class View_Contributions extends AppCompatActivity {
 
@@ -65,6 +71,42 @@ public class View_Contributions extends AppCompatActivity {
         shelterContributions.setLayoutManager(new LinearLayoutManager(this));
         shelterContributions.setAdapter(contributionsShelterAdapter);
 
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                switch (direction){
+                    case ItemTouchHelper.LEFT:
+                        contributionsShelterAdapter.changeStatus(viewHolder.getAdapterPosition());
+                        break;
+
+                    case ItemTouchHelper.RIGHT:
+                        contributionsShelterAdapter.deleteItem(viewHolder.getAdapterPosition());
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.yellow_card ))
+                        .addSwipeLeftActionIcon(R.drawable.baseline_archive_24)
+                        .addSwipeRightBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.red_card ))
+                        .addSwipeRightActionIcon(R.drawable.baseline_delete_sweep_24)
+                        .create()
+                        .decorate();
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+        }).attachToRecyclerView(shelterContributions);
+
     }
 
     private void setUpClothRecyclerView() {
@@ -80,6 +122,42 @@ public class View_Contributions extends AppCompatActivity {
         clothContributions.setLayoutManager(new LinearLayoutManager(this));
         clothContributions.setAdapter(contributionsClothAdapter);
 
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                switch (direction){
+                    case ItemTouchHelper.LEFT:
+                        contributionsClothAdapter.changeStatus(viewHolder.getAdapterPosition());
+                        break;
+
+                    case ItemTouchHelper.RIGHT:
+                        contributionsClothAdapter.deleteItem(viewHolder.getAdapterPosition());
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.yellow_card ))
+                        .addSwipeLeftActionIcon(R.drawable.baseline_archive_24)
+                        .addSwipeRightBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.red_card ))
+                        .addSwipeRightActionIcon(R.drawable.baseline_delete_sweep_24)
+                        .create()
+                        .decorate();
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+        }).attachToRecyclerView(clothContributions);
+
     }
 
     private void setUpFoodRecyclerView() {
@@ -94,6 +172,63 @@ public class View_Contributions extends AppCompatActivity {
         foodContributions.setHasFixedSize(false);
         foodContributions.setLayoutManager(new LinearLayoutManager(this));
         foodContributions.setAdapter(contributionsFoodAdapter);
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+//                if(contributionsFoodAdapter.getStatus(viewHolder.getAdapterPosition())){
+
+                    switch (direction){
+                        case ItemTouchHelper.LEFT:
+                            contributionsFoodAdapter.changeStatus(viewHolder.getAdapterPosition());
+                            break;
+
+                        case ItemTouchHelper.RIGHT:
+                            contributionsFoodAdapter.deleteItem(viewHolder.getAdapterPosition());
+                            break;
+                    }
+//
+//                }
+//                else{
+//                    contributionsFoodAdapter.deleteItem(viewHolder.getAdapterPosition());
+//                }
+
+            }
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+//                if(contributionsFoodAdapter.getStatus(viewHolder.getAdapterPosition())){
+
+                    new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                            .addSwipeLeftBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.yellow_card ))
+                            .addSwipeLeftActionIcon(R.drawable.baseline_archive_24)
+                            .addSwipeRightBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.red_card ))
+                            .addSwipeRightActionIcon(R.drawable.baseline_delete_sweep_24)
+                            .create()
+                            .decorate();
+
+//                }else{
+//
+//                    new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+//                            .addSwipeLeftBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.red_card ))
+//                            .addSwipeLeftActionIcon(R.drawable.baseline_delete_sweep_24)
+//                            .addSwipeRightBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.red_card ))
+//                            .addSwipeRightActionIcon(R.drawable.baseline_delete_sweep_24)
+//                            .create()
+//                            .decorate();
+//
+//                }
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+        }).attachToRecyclerView(foodContributions);
 
     }
 
