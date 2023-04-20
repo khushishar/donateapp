@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+array donation_type
 color black
 color green_card
 color ic_launcher_background
@@ -43,6 +44,7 @@ id foodItemCount
 id foodItemName
 id foodRecycler
 id food_recycler
+id form
 id login_btn
 id login_email
 id login_password
@@ -58,6 +60,12 @@ id register_user_type
 id sendFood_Btn
 id sendFood_FName
 id sendFood_Quantity
+id sendcloth_Btn
+id sendcloth_CName
+id sendcloth_Quantity
+id sendshelter_Btn
+id sendshelter_description
+id sendshelter_people
 id shelterDonorName
 id shelterDonorNumber
 id shelterItemCard
@@ -68,14 +76,18 @@ id shelter_recycler
 id to_login
 id to_register
 id user_details
+id user_spinner
 id viewContributions
 layout activity_donate_item
+layout activity_donation_cloth
+layout activity_donation_shelter
 layout activity_donor_side
 layout activity_login
 layout activity_main
 layout activity_receiver_side
 layout activity_register
 layout activity_send_food
+layout activity_spinner
 layout activity_view_clothes
 layout activity_view_contributions
 layout activity_view_food

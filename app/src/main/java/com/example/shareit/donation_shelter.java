@@ -56,7 +56,7 @@ public class donation_shelter extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donation_cloth);
+        setContentView(R.layout.activity_donation_shelter);
 
         people = findViewById(R.id.sendshelter_people);
         description = findViewById(R.id.sendshelter_description);
@@ -162,8 +162,8 @@ public class donation_shelter extends AppCompatActivity {
                 shelterItem.put("DonorID", user.getUid());
                 shelterItem.put("DonorName", UserName);
                 shelterItem.put("DonorNumber", UserPhone);
-                shelterItem.put("ClothName", String.valueOf(people.getText()));
-                shelterItem.put("ClothCount", String.valueOf(description.getText()));
+                shelterItem.put("ShelterAvailability", String.valueOf(people.getText()));
+                shelterItem.put("ShelterDescription", String.valueOf(description.getText()));
                 shelterItem.put("Location",new GeoPoint(LocLatitude, LocLongitude));
                 shelterItem.put("TimeStamp", com.google.firebase.Timestamp.now().toDate());
                 shelterItem.put("MilliSec", timestamp.getTime());

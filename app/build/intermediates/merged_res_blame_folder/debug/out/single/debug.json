@@ -28,6 +28,14 @@
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_receiver_side.xml"
     },
     {
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_donation_cloth.xml.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_donation_cloth.xml"
+    },
+    {
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_spinner.xml.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_spinner.xml"
+    },
+    {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_view_contributions.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_view_contributions.xml"
     },
@@ -38,6 +46,10 @@
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.example.shareit.app-merged_res-36:/layout_activity_donation_shelter.xml.flat",
+        "source": "com.example.shareit.app-main-38:/layout/activity_donation_shelter.xml"
     },
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_donor_side.xml.flat",
@@ -88,6 +100,10 @@
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\menu\\view_food_menu.xml"
     },
     {
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_donation_shelter.xml.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_donation_shelter.xml"
+    },
+    {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\xml\\backup_rules.xml"
     },
@@ -106,10 +122,6 @@
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_view_clothes.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_view_clothes.xml"
-    },
-    {
-        "merged": "com.example.shareit.app-merged_res-36:/layout_contributionscard_item.xml.flat",
-        "source": "com.example.shareit.app-main-38:/layout/contributionscard_item.xml"
     },
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\drawable-v24_mainbg.png.flat",

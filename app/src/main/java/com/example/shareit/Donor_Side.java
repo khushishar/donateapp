@@ -76,10 +76,8 @@ public class Donor_Side extends AppCompatActivity {
         donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent_donate = new Intent(getApplicationContext(), DonateItem.class);
-//                startActivity(intent_donate);
 
-                Intent intent = new Intent(getApplicationContext(), sendFood.class);
+                Intent intent = new Intent(getApplicationContext(), Spinner.class);
                 startActivity(intent);
             }
         });

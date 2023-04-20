@@ -30,6 +30,18 @@ public class ContributionsClothAdapter extends FirestoreRecyclerAdapter<ClothIte
         return new ContributionsClothAdapter.ClothViewHolder(v);
     }
 
+    public void rightSwiped(int position){
+        deleteItem(position);
+    }
+
+    public void leftSwiped(int position){
+        if(getSnapshots().getSnapshot(position).getBoolean("Status")){
+            changeStatus(position);
+        }else {
+            deleteItem(position);
+        }
+    }
+
     public void deleteItem(int position){
         getSnapshots().getSnapshot(position).getReference().delete();
     }

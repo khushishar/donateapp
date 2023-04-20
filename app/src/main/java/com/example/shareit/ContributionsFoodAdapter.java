@@ -31,8 +31,6 @@ import java.util.Map;
 public class ContributionsFoodAdapter extends FirestoreRecyclerAdapter<FoodItem, ContributionsFoodAdapter.FoodViewHolder> {
 
     Context context;
-//    private FirebaseFirestore DB = FirebaseFirestore.getInstance();
-//    private CollectionReference FoodDB = DB.collection("Foods");
 
     public ContributionsFoodAdapter(@NonNull FirestoreRecyclerOptions<FoodItem> options) {
         super(options);
@@ -45,6 +43,18 @@ public class ContributionsFoodAdapter extends FirestoreRecyclerAdapter<FoodItem,
         return new FoodViewHolder(v);
     }
 
+    public void rightSwiped(int position){
+        deleteItem(position);
+    }
+
+    public void leftSwiped(int position){
+        if(getSnapshots().getSnapshot(position).getBoolean("Status")){
+            changeStatus(position);
+        }else {
+            deleteItem(position);
+        }
+    }
+
     public void deleteItem(int position){
         getSnapshots().getSnapshot(position).getReference().delete();
     }
@@ -53,13 +63,9 @@ public class ContributionsFoodAdapter extends FirestoreRecyclerAdapter<FoodItem,
         getSnapshots().getSnapshot(position).getReference().update("Status", false);
     }
 
-//    public boolean getStatus(int position){
-//        try{
-//            return getSnapshots().getSnapshot(position).getBoolean("Status");
-//        } catch (ArrayIndexOutOfBoundsException e) {
-//            return false;
-//        }
-//    }
+    public boolean getStatus(int position){
+            return getSnapshots().getSnapshot(position).getBoolean("Status");
+    }
 //
 //    public void renew(int position){
 //        DocumentSnapshot snap = getSnapshots().getSnapshot(position);
@@ -104,9 +110,9 @@ public class ContributionsFoodAdapter extends FirestoreRecyclerAdapter<FoodItem,
         holder.FoodName.setText(String.valueOf(model.FoodName));
         holder.FoodCount.setText(String.valueOf(model.FoodCount));
 
-        if(!model.Status)
+        if(!model.Status) {
             holder.cardView.setCardBackgroundColor(Color.parseColor("#EEFC5E"));
-
+        }
     }
 
     class FoodViewHolder extends RecyclerView.ViewHolder {

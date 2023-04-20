@@ -8,12 +8,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +34,7 @@ public class View_Contributions extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     RecyclerView foodContributions, clothContributions, shelterContributions;
+    FloatingActionButton addItem;
     private FirebaseFirestore DB = FirebaseFirestore.getInstance();
     private CollectionReference FoodDB = DB.collection("Foods");
     private ContributionsFoodAdapter contributionsFoodAdapter;
@@ -49,12 +54,23 @@ public class View_Contributions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_contributions);
 
+        addItem = findViewById(R.id.add_contributions);
+
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
         setUpFoodRecyclerView();
         setUpClothRecyclerView();
         setUpShelterRecyclerView();
+
+        addItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Spinner.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
@@ -82,11 +98,11 @@ public class View_Contributions extends AppCompatActivity {
 
                 switch (direction){
                     case ItemTouchHelper.LEFT:
-                        contributionsShelterAdapter.changeStatus(viewHolder.getAdapterPosition());
+                        contributionsShelterAdapter.leftSwiped(viewHolder.getAdapterPosition());
                         break;
 
                     case ItemTouchHelper.RIGHT:
-                        contributionsShelterAdapter.deleteItem(viewHolder.getAdapterPosition());
+                        contributionsShelterAdapter.rightSwiped(viewHolder.getAdapterPosition());
                         break;
                 }
 
@@ -133,11 +149,11 @@ public class View_Contributions extends AppCompatActivity {
 
                 switch (direction){
                     case ItemTouchHelper.LEFT:
-                        contributionsClothAdapter.changeStatus(viewHolder.getAdapterPosition());
+                        contributionsClothAdapter.leftSwiped(viewHolder.getAdapterPosition());
                         break;
 
                     case ItemTouchHelper.RIGHT:
-                        contributionsClothAdapter.deleteItem(viewHolder.getAdapterPosition());
+                        contributionsClothAdapter.rightSwiped(viewHolder.getAdapterPosition());
                         break;
                 }
 
@@ -145,6 +161,8 @@ public class View_Contributions extends AppCompatActivity {
 
             @Override
             public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+
 
                 new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                         .addSwipeLeftBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.yellow_card ))
@@ -182,29 +200,22 @@ public class View_Contributions extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-//                if(contributionsFoodAdapter.getStatus(viewHolder.getAdapterPosition())){
 
                     switch (direction){
                         case ItemTouchHelper.LEFT:
-                            contributionsFoodAdapter.changeStatus(viewHolder.getAdapterPosition());
+                            contributionsFoodAdapter.leftSwiped(viewHolder.getAdapterPosition());
                             break;
 
                         case ItemTouchHelper.RIGHT:
-                            contributionsFoodAdapter.deleteItem(viewHolder.getAdapterPosition());
+                            contributionsFoodAdapter.rightSwiped(viewHolder.getAdapterPosition());
                             break;
                     }
-//
-//                }
-//                else{
-//                    contributionsFoodAdapter.deleteItem(viewHolder.getAdapterPosition());
-//                }
-
             }
 
             @Override
             public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
 
-//                if(contributionsFoodAdapter.getStatus(viewHolder.getAdapterPosition())){
+//                if(viewHolder.itemView.getDrawingCacheBackgroundColor() != Color.parseColor("#EEFC5E")){
 
                     new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                             .addSwipeLeftBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.yellow_card ))
@@ -215,7 +226,7 @@ public class View_Contributions extends AppCompatActivity {
                             .decorate();
 
 //                }else{
-//
+
 //                    new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
 //                            .addSwipeLeftBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.red_card ))
 //                            .addSwipeLeftActionIcon(R.drawable.baseline_delete_sweep_24)
@@ -223,7 +234,7 @@ public class View_Contributions extends AppCompatActivity {
 //                            .addSwipeRightActionIcon(R.drawable.baseline_delete_sweep_24)
 //                            .create()
 //                            .decorate();
-//
+
 //                }
 
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);

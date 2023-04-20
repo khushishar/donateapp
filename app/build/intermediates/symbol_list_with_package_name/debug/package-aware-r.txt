@@ -74,6 +74,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array donation_type
 attr SharedValue
 attr SharedValueId
 attr actionBarDivider
@@ -3091,6 +3092,7 @@ id foodItemName
 id foodRecycler
 id food_recycler
 id forever
+id form
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3300,6 +3302,12 @@ id selection_type
 id sendFood_Btn
 id sendFood_FName
 id sendFood_Quantity
+id sendcloth_Btn
+id sendcloth_CName
+id sendcloth_Quantity
+id sendshelter_Btn
+id sendshelter_description
+id sendshelter_people
 id sharedValueSet
 id sharedValueUnset
 id shelterDonorName
@@ -3400,6 +3408,7 @@ id unlabeled
 id up
 id useLogo
 id user_details
+id user_spinner
 id vertical_only
 id viewContributions
 id view_offset_helper
@@ -3528,12 +3537,15 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_donate_item
+layout activity_donation_cloth
+layout activity_donation_shelter
 layout activity_donor_side
 layout activity_login
 layout activity_main
 layout activity_receiver_side
 layout activity_register
 layout activity_send_food
+layout activity_spinner
 layout activity_view_clothes
 layout activity_view_contributions
 layout activity_view_food
