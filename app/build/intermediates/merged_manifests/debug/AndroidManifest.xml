@@ -60,6 +60,18 @@
             android:exported="false"
             android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
+            android:name="com.example.shareit.Spinner"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+        <activity
+            android:name="com.example.shareit.donation_cloth"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+        <activity
+            android:name="com.example.shareit.donation_shelter"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+        <activity
             android:name="com.example.shareit.Login"
             android:exported="true"
             android:theme="@style/Theme.Material3.Light.NoActionBar" >

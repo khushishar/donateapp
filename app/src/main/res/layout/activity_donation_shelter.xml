@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".donation_shelter"
+    android:background="@drawable/shelter"
     android:orientation="vertical"
 
     android:gravity="center"

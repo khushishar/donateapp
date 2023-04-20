@@ -66,6 +66,7 @@ public class ContributionsFoodAdapter extends FirestoreRecyclerAdapter<FoodItem,
     public boolean getStatus(int position){
             return getSnapshots().getSnapshot(position).getBoolean("Status");
     }
+
 //
 //    public void renew(int position){
 //        DocumentSnapshot snap = getSnapshots().getSnapshot(position);

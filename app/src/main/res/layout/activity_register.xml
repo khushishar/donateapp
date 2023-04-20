@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="10dp"
+    android:background="@drawable/cafe"
     tools:context=".Register">
 
     <TextView
@@ -15,6 +16,7 @@
         android:text="@string/register_heading"
         android:textSize="30sp"
         style="bold"
+        android:layout_marginTop="160dp"
         android:layout_marginBottom="10dp"
         />
 

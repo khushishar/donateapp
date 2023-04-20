@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".donation_cloth"
     android:orientation="vertical"
-    android:background="@drawable/peep"
+    android:background="@drawable/cloth"
     android:gravity="center"
     android:padding="10dp">
 
