@@ -1,0 +1,13 @@
+#Wed Apr 19 22:32:47 IST 2023
+path.3=8/classes.dex
+path.2=14/classes.dex
+path.1=0/classes.dex
+path.0=classes.dex
+base.3=C\:\\Users\\chira\\AndroidStudioProjects\\donateapp\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\8\\classes.dex
+base.2=C\:\\Users\\chira\\AndroidStudioProjects\\donateapp\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\14\\classes.dex
+base.1=C\:\\Users\\chira\\AndroidStudioProjects\\donateapp\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
+base.0=C\:\\Users\\chira\\AndroidStudioProjects\\donateapp\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
