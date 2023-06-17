@@ -13,6 +13,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Toast;
 
@@ -220,8 +221,13 @@ public class View_Contributions extends AppCompatActivity {
                     new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                             .addSwipeLeftBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.yellow_card ))
                             .addSwipeLeftActionIcon(R.drawable.baseline_archive_24)
+                            .addSwipeLeftLabel("DeActivate")
+                            .setSwipeLeftLabelColor(ContextCompat.getColor(View_Contributions.this, R.color.white))
                             .addSwipeRightBackgroundColor(ContextCompat.getColor(View_Contributions.this, R.color.red_card ))
                             .addSwipeRightActionIcon(R.drawable.baseline_delete_sweep_24)
+                            .addSwipeRightLabel("Delete")
+                            .setSwipeRightLabelColor(ContextCompat.getColor(View_Contributions.this, R.color.white))
+                            .setIconHorizontalMargin(TypedValue.COMPLEX_UNIT_SP, 20)
                             .create()
                             .decorate();
 

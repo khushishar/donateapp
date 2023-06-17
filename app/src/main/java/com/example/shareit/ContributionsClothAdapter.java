@@ -50,13 +50,6 @@ public class ContributionsClothAdapter extends FirestoreRecyclerAdapter<ClothIte
         getSnapshots().getSnapshot(position).getReference().update("Status", false);
     }
 
-//    @Override
-//    public void onDataChanged () {
-//        super.onDataChanged();
-//        if (getItemCount() == 0)
-//            Toast.makeText(context, "There are no Food items", Toast.LENGTH_SHORT).show();
-//    }
-
         @Override
         protected void onBindViewHolder (@NonNull ContributionsClothAdapter.ClothViewHolder holder,
         int position, @NonNull ClothItem model){

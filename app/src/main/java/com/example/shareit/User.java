@@ -3,16 +3,26 @@ package com.example.shareit;
 public class User {
 
     private String name, phone, email, usertype, userId;
+    private Boolean verification;
 
     public User() {
     }
 
-    public User(String name, String phone, String email, String usertype, String userId) {
+    public User(String name, String phone, String email, String usertype, String userId, Boolean verification) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.usertype = usertype;
         this.userId = userId;
+        this.verification = verification;
+    }
+
+    public Boolean getVerification() {
+        return verification;
+    }
+
+    public void setVerification(Boolean verification) {
+        this.verification = verification;
     }
 
     public String getName() {

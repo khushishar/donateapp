@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">325162521310-v3m936qu8q39da6kq65r7ssesek5vu5s.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">325162521310-ssi0q95hojaqkp4s4ali3bg41vepbg2p.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app</string>
     <string name="gcm_defaultSenderId" translatable="false">325162521310</string>
     <string name="google_api_key" translatable="false">AIzaSyCdazEtfCkpjmmSWAopl4d6OdMb5et1t2E</string>
     <string name="google_app_id" translatable="false">1:325162521310:android:8d65fd5aed7e14fbc8e84f</string>

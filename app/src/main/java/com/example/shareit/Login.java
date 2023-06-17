@@ -21,11 +21,15 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity {
 
@@ -35,16 +39,48 @@ public class Login extends AppCompatActivity {
     ProgressBar progressBar;
     TextView to_register;
     FirebaseAuth mAuth;
+    FirebaseUser currentUser;
+    String name;
+    DatabaseReference UserDB;
+
 
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
+        name = null;
+        UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
+
         if(currentUser != null){
-            Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent_main);
-            finish();
+            if(currentUser.isEmailVerified()){
+                String UserID = currentUser.getUid();
+
+                UserDB.child(UserID).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                    @Override
+                    public void onSuccess(DataSnapshot dataSnapshot) {
+                        name = dataSnapshot.child("name").getValue().toString();
+                    }
+                });
+                if(name != null){
+                    Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent_main);
+                    finish();
+                }else{
+                    Intent intent_user_details = new Intent(getApplicationContext(), user_details_register.class);
+                    intent_user_details.putExtra("email", currentUser.getEmail());
+                    startActivity(intent_user_details);
+                    finish();
+                }
+
+            }else{
+                Toast.makeText(this, "Please verify email before proceeding", Toast.LENGTH_SHORT).show();
+                currentUser.sendEmailVerification();
+                mAuth.signOut();
+                Intent intent_login = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent_login);
+                finish();
+            }
         }
     }
 
