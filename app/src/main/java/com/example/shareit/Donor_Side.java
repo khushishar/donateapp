@@ -2,6 +2,7 @@ package com.example.shareit;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
@@ -22,7 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Donor_Side extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 100;
-    Button logout,donate,viewContributions;
+//    Button logout;
+    CardView donateFood, donateClothes, donateShelter, viewContributions;
     TextView userDetail;
     FirebaseUser user;
     DatabaseReference UserDB;
@@ -36,8 +38,11 @@ public class Donor_Side extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
 
-        logout = findViewById(R.id.logout);
-        donate = findViewById(R.id.donateItem);
+//        logout = findViewById(R.id.logout);
+
+        donateFood = findViewById(R.id.donateFood);
+        donateClothes = findViewById(R.id.donateClothes);
+        donateShelter = findViewById(R.id.donateShelter);
         viewContributions = findViewById(R.id.viewContributions);
 
         userDetail = findViewById(R.id.user_details);
@@ -57,29 +62,59 @@ public class Donor_Side extends AppCompatActivity {
                 @Override
                 public void onSuccess(DataSnapshot dataSnapshot) {
 
-                    userDetail.setText("Hello " + String.valueOf(dataSnapshot.child("name").getValue()));
+                    userDetail.setText("Hello " + String.valueOf(dataSnapshot.child("name").getValue()) + ", what are you donating?" );
 
                 }
             });
         }
 
-        logout.setOnClickListener(new View.OnClickListener() {
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mAuth.signOut();
+//                Intent intent_login = new Intent(getApplicationContext(), Login.class);
+//                startActivity(intent_login);
+//                finish();
+//                Toast.makeText(Donor_Side.this, "Logged Out", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+//        donate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getApplicationContext(), Spinner.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        donateFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                Intent intent_login = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent_login);
+                Intent food_donate = new Intent(getApplicationContext(), sendFood.class);
+                startActivity(food_donate);
+                Toast.makeText(Donor_Side.this, "Donate Food", Toast.LENGTH_SHORT).show();
                 finish();
-                Toast.makeText(Donor_Side.this, "Logged Out", Toast.LENGTH_SHORT).show();
             }
         });
 
-        donate.setOnClickListener(new View.OnClickListener() {
+        donateClothes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent cloth_donate = new Intent(getApplicationContext(), donation_cloth.class);
+                startActivity(cloth_donate);
+                Toast.makeText(Donor_Side.this, "Donate Clothes", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
 
-                Intent intent = new Intent(getApplicationContext(), Spinner.class);
-                startActivity(intent);
+        donateShelter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shelter_donate = new Intent(getApplicationContext(), donation_shelter.class);
+                startActivity(shelter_donate);
+                Toast.makeText(Donor_Side.this, "Donate Shelter", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
@@ -92,8 +127,6 @@ public class Donor_Side extends AppCompatActivity {
         });
 
     }
-
-
 
     private void askPermission() {
         ActivityCompat.requestPermissions(Donor_Side.this, new String[] {android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);

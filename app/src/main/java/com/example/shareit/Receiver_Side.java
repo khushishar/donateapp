@@ -2,6 +2,7 @@ package com.example.shareit;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
@@ -22,7 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Receiver_Side extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 100;
-    Button logout,cloth,food,shelter;
+
+    CardView receiveFood, receiveClothes, receiveShelter, logout;
     TextView userDetail;
     FirebaseUser user;
     DatabaseReference UserDB;
@@ -36,9 +38,10 @@ public class Receiver_Side extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         logout = findViewById(R.id.logout);
-        cloth= findViewById(R.id.donateclothes);
-        food = findViewById(R.id.donateFood);
-        shelter=findViewById(R.id.donateshelter);
+        receiveFood = findViewById(R.id.receiveFood);
+        receiveClothes = findViewById(R.id.receiveClothes);
+        receiveShelter = findViewById(R.id.receiveShelter);
+
         userDetail = findViewById(R.id.user_details);
         user = mAuth.getCurrentUser();
 
@@ -55,8 +58,7 @@ public class Receiver_Side extends AppCompatActivity {
             UserDB.child(UserID).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
                 @Override
                 public void onSuccess(DataSnapshot dataSnapshot) {
-                    userDetail.setText("Hello " + String.valueOf(dataSnapshot.child("name").getValue()));
-
+                    userDetail.setText("Hello " + String.valueOf(dataSnapshot.child("name").getValue()) + ", what dou you need?");
                 }
             });
         }
@@ -67,21 +69,21 @@ public class Receiver_Side extends AppCompatActivity {
                 mAuth.signOut();
                 Intent intent_login = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent_login);
-                finish();
                 Toast.makeText(Receiver_Side.this, "Logged Out", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
-        food.setOnClickListener(new View.OnClickListener() {
+        receiveFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_sendFood = new Intent(getApplicationContext(), ViewFood.class);
-                startActivity(intent_sendFood);
+                Intent intent_getFood = new Intent(getApplicationContext(), ViewFood.class);
+                startActivity(intent_getFood);
 //                finish();
             }
         });
 
-        cloth.setOnClickListener(new View.OnClickListener() {
+        receiveClothes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent_getFood = new Intent(getApplicationContext(),ViewClothes.class);
@@ -91,7 +93,7 @@ public class Receiver_Side extends AppCompatActivity {
 
             }
         });
-        shelter.setOnClickListener(new View.OnClickListener() {
+        receiveShelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent_getFood = new Intent(getApplicationContext(), ViewShelters.class);

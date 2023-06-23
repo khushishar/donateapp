@@ -84,21 +84,24 @@ public class user_details_register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                btn_register.setVisibility(View.INVISIBLE);
                 name = String.valueOf(edt_Name.getText());
                 phone = String.valueOf(edt_Phone.getText());
-                progressBar.setVisibility(View.VISIBLE);
 
                 if (TextUtils.isEmpty(name)) {
                     Toast.makeText(user_details_register.this, "Please Enter Name", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_register.setVisibility(View.VISIBLE);
                     return;
                 } else if (TextUtils.isEmpty(phone) || !phone.matches("\\d{10}")) {
                     Toast.makeText(user_details_register.this, "Please Enter correct phone number", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_register.setVisibility(View.VISIBLE);
                     return;
                 } else if (TextUtils.isEmpty(usertype)) {
                     Toast.makeText(user_details_register.this, "Please Select User Type", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_register.setVisibility(View.VISIBLE);
                     return;
                 }
 
@@ -140,6 +143,7 @@ public class user_details_register extends AppCompatActivity {
                                     }
                                 });
                                 progressBar.setVisibility(View.INVISIBLE);
+                                btn_register.setVisibility(View.VISIBLE);
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -165,6 +169,7 @@ public class user_details_register extends AppCompatActivity {
                                     }
                                 });
                                 progressBar.setVisibility(View.INVISIBLE);
+                                btn_register.setVisibility(View.VISIBLE);
 
                             }
                         });
@@ -180,6 +185,7 @@ public class user_details_register extends AppCompatActivity {
                             //Invalid number
                             Toast.makeText(user_details_register.this, "Please check your number", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.INVISIBLE);
+                            btn_register.setVisibility(View.VISIBLE);
                             return;
                         } else if (e instanceof FirebaseTooManyRequestsException) {
                             String userId = userID;
@@ -201,11 +207,13 @@ public class user_details_register extends AppCompatActivity {
                                 }
                             });
                             progressBar.setVisibility(View.INVISIBLE);
+                            btn_register.setVisibility(View.VISIBLE);
                             return;
 
                         } else if (e instanceof FirebaseAuthMissingActivityForRecaptchaException) {
                             // reCAPTCHA verification attempted with null Activity
                             progressBar.setVisibility(View.INVISIBLE);
+                            btn_register.setVisibility(View.VISIBLE);
                             return;
                         }
 
@@ -250,6 +258,7 @@ public class user_details_register extends AppCompatActivity {
                             }
                         });
                         progressBar.setVisibility(View.INVISIBLE);
+                        btn_register.setVisibility(View.VISIBLE);
                     }
                 };
 
@@ -264,6 +273,7 @@ public class user_details_register extends AppCompatActivity {
 
                 PhoneAuthProvider.verifyPhoneNumber(options);
                 progressBar.setVisibility(View.INVISIBLE);
+                btn_register.setVisibility(View.VISIBLE);
 
             }});
 

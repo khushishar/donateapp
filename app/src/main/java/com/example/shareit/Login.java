@@ -56,22 +56,23 @@ public class Login extends AppCompatActivity {
             if(currentUser.isEmailVerified()){
                 String UserID = currentUser.getUid();
 
-                UserDB.child(UserID).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                UserDB.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
                     @Override
                     public void onSuccess(DataSnapshot dataSnapshot) {
-                        name = dataSnapshot.child("name").getValue().toString();
+
+                        if(dataSnapshot.child(UserID).exists()){
+                            Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent_main);
+                            finish();
+                        }else{
+                            Intent intent_user_details = new Intent(getApplicationContext(), user_details_register.class);
+                            intent_user_details.putExtra("email", currentUser.getEmail());
+                            startActivity(intent_user_details);
+                            finish();
+                        }
+
                     }
                 });
-                if(name != null){
-                    Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent_main);
-                    finish();
-                }else{
-                    Intent intent_user_details = new Intent(getApplicationContext(), user_details_register.class);
-                    intent_user_details.putExtra("email", currentUser.getEmail());
-                    startActivity(intent_user_details);
-                    finish();
-                }
 
             }else{
                 Toast.makeText(this, "Please verify email before proceeding", Toast.LENGTH_SHORT).show();
@@ -150,12 +151,40 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Login.this, "LoggedIn Successfully.",Toast.LENGTH_SHORT).show();
-                                    Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(intent_main);
-                                    finish();
+                                    if(mAuth.getCurrentUser().isEmailVerified()){
+
+                                        String UserID = mAuth.getCurrentUser().getUid();
+                                        UserDB.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                                            @Override
+                                            public void onSuccess(DataSnapshot dataSnapshot) {
+
+                                                if(dataSnapshot.child(UserID).exists()){
+                                                    Toast.makeText(Login.this, "LoggedIn Successfully.",Toast.LENGTH_SHORT).show();
+                                                    Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
+                                                    startActivity(intent_main);
+                                                    finish();
+                                                }else{
+                                                    Intent intent_user_details = new Intent(getApplicationContext(), user_details_register.class);
+                                                    intent_user_details.putExtra("email", currentUser.getEmail());
+                                                    startActivity(intent_user_details);
+                                                    finish();
+                                                }
+
+                                            }
+                                        });
+
+                                    }else{
+
+                                        Toast.makeText(Login.this, "Please verify email before proceeding", Toast.LENGTH_SHORT).show();
+                                        currentUser.sendEmailVerification();
+                                        mAuth.signOut();
+                                        Intent intent_login = new Intent(getApplicationContext(), Login.class);
+                                        startActivity(intent_login);
+                                        finish();
+                                    }
 
                                 } else {
+
                                     Toast.makeText(Login.this, "LogIn failed.",Toast.LENGTH_SHORT).show();
 
                                 }

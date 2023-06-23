@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
             UserDB.child(UserID).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
                 @Override
                 public void onSuccess(DataSnapshot dataSnapshot) {
+                    if (user.getEmail() != String.valueOf(dataSnapshot.child("email").getValue())){
+                        UserDB.child(UserID).child("email").setValue(user.getEmail());
+                    }
                     String usertype = String.valueOf(dataSnapshot.child("usertype").getValue());
                     if(usertype.equals("Donor")){
                         Intent intent_donor = new Intent(getApplicationContext(), Donor_Side.class);

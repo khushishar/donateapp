@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,32 +14,34 @@
         android:id="@+id/user_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text=""
+        android:text="User name"
         android:textSize="22sp" />
 
 
-    <Button
-        android:id="@+id/donateItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="0dp"
-        android:backgroundTint="#b7e2f3"
-        android:text="Donate"
-        android:textColor="#222121"
-        android:textSize="18sp" />
+<!--    <Button-->
+<!--        android:id="@+id/donateItem"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginBottom="0dp"-->
+<!--        android:backgroundTint="#b7e2f3"-->
+<!--        android:text="Donate"-->
+<!--        android:textColor="#222121"-->
+<!--        android:textSize="18sp" />-->
 
-    <Button
-        android:id="@+id/viewContributions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#b7e2f3"
-        android:text="Contributions"
-        android:textColor="#202020"
-        android:textSize="18sp" />
+<!--    <Button-->
+<!--        android:id="@+id/viewContributions"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:backgroundTint="#b7e2f3"-->
+<!--        android:text="Contributions"-->
+<!--        android:textColor="#202020"-->
+<!--        android:textSize="18sp" />-->
 
 <!--    <Button-->
 <!--        android:id="@+id/donateshelter"-->
@@ -51,15 +53,153 @@
 <!--        android:textColor="#202020"-->
 <!--        android:textSize="18sp" />-->
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#b7e2f3"
-        android:text="Logout"
-        android:textColor="#191818"
-        android:textSize="18sp" />
+<!--    <Button-->
+<!--        android:id="@+id/logout"-->
+<!--        android:layout_width="160dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:backgroundTint="#b7e2f3"-->
+<!--        android:text="Logout"-->
+<!--        android:textColor="#191818"-->
+<!--        android:textSize="18sp" />-->
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:layout_below="@+id/user_details"
+        android:layout_marginBottom="50dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            android:id="@+id/donateFood">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_vertical|center_horizontal">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/diet"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Food"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            android:id="@+id/donateClothes">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_vertical|center_horizontal">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/clothes"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clothes"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            android:id="@+id/donateShelter">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_vertical|center_horizontal">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/house"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shelter"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            android:id="@+id/viewContributions">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_vertical|center_horizontal">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/contribution"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Contributions"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
 
 
-</LinearLayout>
+</RelativeLayout>
