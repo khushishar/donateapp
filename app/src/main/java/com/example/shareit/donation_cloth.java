@@ -8,17 +8,15 @@ import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationAvailability;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
@@ -35,9 +33,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class donation_cloth extends AppCompatActivity {
@@ -119,7 +115,15 @@ public class donation_cloth extends AppCompatActivity {
         sendcloth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertFoodData();
+
+                if(TextUtils.isEmpty(clothtype.getText())){
+                    clothtype.setError("Please enter you cloth type");
+                    return;
+                } else if (TextUtils.isEmpty(Quantity.getText())) {
+                    Quantity.setError("Please enter cloth quantity");
+                    return;
+                }
+                insertClothData();
             }
         });
 
@@ -141,7 +145,7 @@ public class donation_cloth extends AppCompatActivity {
     }
 
 
-    private void insertFoodData() {
+    private void insertClothData() {
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
             askPermission();

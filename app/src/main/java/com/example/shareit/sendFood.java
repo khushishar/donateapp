@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -116,6 +117,13 @@ public class sendFood extends AppCompatActivity {
         sendFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(TextUtils.isEmpty(foodName.getText())){
+                    foodName.setError("Please enter food name");
+                    return;
+                } else if (TextUtils.isEmpty(foodQuantity.getText())) {
+                    foodQuantity.setError("Please enter quantity");
+                    return;
+                }
                 insertFoodData();
             }
         });

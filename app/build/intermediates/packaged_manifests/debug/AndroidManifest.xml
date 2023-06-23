@@ -32,6 +32,18 @@
         android:testOnly="true"
         android:theme="@style/Theme.Material3.Light" >
         <activity
+            android:name="com.example.shareit.change_user_phone"
+            android:exported="false" />
+        <activity
+            android:name="com.example.shareit.change_user_email"
+            android:exported="false" />
+        <activity
+            android:name="com.example.shareit.change_user_password"
+            android:exported="false" />
+        <activity
+            android:name="com.example.shareit.change_user_details"
+            android:exported="false" />
+        <activity
             android:name="com.example.shareit.user_details_register"
             android:exported="false" />
         <activity
@@ -81,16 +93,22 @@
             android:name="com.example.shareit.Login"
             android:exported="true"
             android:theme="@style/Theme.Material3.Light.NoActionBar" >
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.example.shareit.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.shareit.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"
             android:excludeFromRecents="true"

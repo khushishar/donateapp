@@ -21,6 +21,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -37,7 +38,7 @@ public class Login extends AppCompatActivity {
     TextInputEditText edt_Mail, edt_Password;
     Button btn_login;
     ProgressBar progressBar;
-    TextView to_register;
+    TextView to_register, pwd_reset;
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
     String name;
@@ -95,6 +96,7 @@ public class Login extends AppCompatActivity {
         edt_Password = findViewById(R.id.login_password);
         btn_login = findViewById(R.id.login_btn);
         to_register = findViewById(R.id.to_register);
+        pwd_reset = findViewById(R.id.forgot_password);
         progressBar = findViewById(R.id.login_progressbar);
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED) {
@@ -127,21 +129,59 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        pwd_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email;
+                email = String.valueOf(edt_Mail.getText());
+                if(TextUtils.isEmpty(email)){
+//                    Toast.makeText(Login.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
+                    edt_Mail.setError("Please enter your email");
+                    return;
+                } else if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+                    Toast.makeText(Login.this, "Please check entered email", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                mAuth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(Login.this, "Password reset link sent to your email: "+ email, Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Login.this, "There is an error sending email: "+ e, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 progressBar.setVisibility(View.VISIBLE);
+                btn_login.setVisibility(View.INVISIBLE);
                 String email, password;
                 email = String.valueOf(edt_Mail.getText());
                 password = String.valueOf(edt_Password.getText());
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Login.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(Login.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
+                    edt_Mail.setError("Please enter email");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    btn_login.setVisibility(View.VISIBLE);
                     return;
-                }
-                if (TextUtils.isEmpty(password)){
-                    Toast.makeText(Login.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
+                } else if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+                    Toast.makeText(Login.this, "Please check entered email", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+                    btn_login.setVisibility(View.VISIBLE);
+                    return;
+                } else if (TextUtils.isEmpty(password)){
+//                    Toast.makeText(Login.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
+                    edt_Password.setError("Please Enter Password");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    btn_login.setVisibility(View.VISIBLE);
                     return;
                 }
 
@@ -149,7 +189,8 @@ public class Login extends AppCompatActivity {
                         .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
+                                progressBar.setVisibility(View.INVISIBLE);
+                                btn_login.setVisibility(View.VISIBLE);
                                 if (task.isSuccessful()) {
                                     if(mAuth.getCurrentUser().isEmailVerified()){
 

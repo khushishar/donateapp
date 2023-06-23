@@ -1,6 +1,10 @@
 package com.example.shareit;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -15,6 +19,36 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     DatabaseReference UserDB;
     FirebaseAuth mAuth;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
+            askPermission();
+        }
+
+    }
+
+    private void askPermission() {
+        ActivityCompat.requestPermissions(MainActivity.this, new String[] {android.Manifest.permission.ACCESS_FINE_LOCATION}, 100);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 100){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();;
+            }else{
+                Toast.makeText(this, "Require Permission", Toast.LENGTH_SHORT).show();
+                mAuth.signOut();
+                Intent intent_login = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent_login);
+                finish();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

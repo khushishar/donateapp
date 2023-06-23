@@ -14,14 +14,15 @@
         style="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="170dp"
         android:text="@string/login"
         android:textSize="30sp"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_email"
@@ -49,25 +50,43 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ProgressBar
-        android:id="@+id/login_progressbar"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <Button
-        android:id="@+id/login_btn"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#b7e2f3"
-        android:text="@string/login"
-        android:textColor="#1E1E1E"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="10dp">
+
+        <ProgressBar
+            android:id="@+id/login_progressbar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#b7e2f3"
+            android:text="@string/login"
+            android:textColor="#1E1E1E"
+            android:layout_marginBottom="5dp"/>
+
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/to_register"
         android:text="@string/register_now"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:text="Forgot Password?"
+        android:layout_marginTop="5dp"
         android:textSize="20sp"
         android:gravity="center"
         android:layout_width="match_parent"

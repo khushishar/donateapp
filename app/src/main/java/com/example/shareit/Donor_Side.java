@@ -31,6 +31,14 @@ public class Donor_Side extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
+            askPermission();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_side);
@@ -79,22 +87,13 @@ public class Donor_Side extends AppCompatActivity {
 //            }
 //        });
 
-//        donate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent(getApplicationContext(), Spinner.class);
-//                startActivity(intent);
-//            }
-//        });
-
         donateFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent food_donate = new Intent(getApplicationContext(), sendFood.class);
                 startActivity(food_donate);
                 Toast.makeText(Donor_Side.this, "Donate Food", Toast.LENGTH_SHORT).show();
-                finish();
+//                finish();
             }
         });
 
@@ -104,7 +103,7 @@ public class Donor_Side extends AppCompatActivity {
                 Intent cloth_donate = new Intent(getApplicationContext(), donation_cloth.class);
                 startActivity(cloth_donate);
                 Toast.makeText(Donor_Side.this, "Donate Clothes", Toast.LENGTH_SHORT).show();
-                finish();
+//                finish();
             }
         });
 
@@ -114,7 +113,7 @@ public class Donor_Side extends AppCompatActivity {
                 Intent shelter_donate = new Intent(getApplicationContext(), donation_shelter.class);
                 startActivity(shelter_donate);
                 Toast.makeText(Donor_Side.this, "Donate Shelter", Toast.LENGTH_SHORT).show();
-                finish();
+//                finish();
             }
         });
 

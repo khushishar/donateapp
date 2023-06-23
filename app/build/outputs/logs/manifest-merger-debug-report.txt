@@ -1,14 +1,15 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
+INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
+INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
+INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
 MERGED from [it.xabaras.android:recyclerview-swipedecorator:1.4] C:\Users\chira\.gradle\caches\transforms-3\85fdc9e417dcd0f84efedfd92bf91d46\transformed\recyclerview-swipedecorator-1.4\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.material:material:1.8.0] C:\Users\chira\.gradle\caches\transforms-3\488519bf88b141369e1f2b3fffc88e8e\transformed\material-1.8.0\AndroidManifest.xml:17:1-26:12
+MERGED from [com.google.android.material:material:1.9.0] C:\Users\chira\.gradle\caches\transforms-3\d488f2c4c46007d73eddcd94b832f4ea\transformed\material-1.9.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\chira\.gradle\caches\transforms-3\3229d8dbfb0c633e276edfd3e6294908\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\chira\.gradle\caches\transforms-3\bc14915fedc1798a01b1f6b5d446b360\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\chira\.gradle\caches\transforms-3\4a8fc8d4cffe1deef03672f2112cd6a4\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\4e8c60a4fc21ab43b90958c81694363f\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\chira\.gradle\caches\transforms-3\1dd36ee72e8db2f33c0603cbcaaa9fbc\transformed\play-services-location-21.0.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.firebaseui:firebase-ui-firestore:8.0.2] C:\Users\chira\.gradle\caches\transforms-3\6b274a0f08a4a4503d4283d1f5ce3f88\transformed\firebase-ui-firestore-8.0.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-auth:22.0.0] C:\Users\chira\.gradle\caches\transforms-3\5cdd53b6af5c85b15385714b4f6929af\transformed\firebase-auth-22.0.0\AndroidManifest.xml:17:1-75:12
@@ -57,7 +58,6 @@ MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\chira\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\chira\.gradle\caches\transforms-3\0c7b599fb3c37e99776d9726f14f1858\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:17:1-37:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\chira\.gradle\caches\transforms-3\20c1ea1f646bec4ba9d31160fd5ab286\transformed\lifecycle-runtime-2.5.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\chira\.gradle\caches\transforms-3\dd78907b48c0d0bc4118fbfd5a25959d\transformed\savedstate-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\4e8c60a4fc21ab43b90958c81694363f\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\98f72089a9c20152c64189bbd9e9696c\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-components:17.1.0] C:\Users\chira\.gradle\caches\transforms-3\a965dd6a152e7911c5c958a51dedbb63\transformed\firebase-components-17.1.0\AndroidManifest.xml:15:1-22:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\chira\.gradle\caches\transforms-3\a4abacc364e01a9a795dff853bb605cd\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
@@ -72,22 +72,22 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\chira\.gradle\caches\transform
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\chira\.gradle\caches\transforms-3\eb81fb53378604cc0225f33f394c7ec0\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [io.grpc:grpc-android:1.52.1] C:\Users\chira\.gradle\caches\transforms-3\c8f6b63a1e8db641b8cc227c41b4fdf2\transformed\grpc-android-1.52.1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\chira\.gradle\caches\transforms-3\303c89b29b1f94f8856e637193912e8d\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
+INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
+INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
 	package
 		INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
 		INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
 		INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-81:12
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:1-97:12
 		INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:2:11-69
@@ -128,9 +128,9 @@ ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:8:22-78
 application
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:10:5-79:19
-MERGED from [com.google.android.material:material:1.8.0] C:\Users\chira\.gradle\caches\transforms-3\488519bf88b141369e1f2b3fffc88e8e\transformed\material-1.8.0\AndroidManifest.xml:24:5-20
-MERGED from [com.google.android.material:material:1.8.0] C:\Users\chira\.gradle\caches\transforms-3\488519bf88b141369e1f2b3fffc88e8e\transformed\material-1.8.0\AndroidManifest.xml:24:5-20
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:10:5-95:19
+MERGED from [com.google.android.material:material:1.9.0] C:\Users\chira\.gradle\caches\transforms-3\d488f2c4c46007d73eddcd94b832f4ea\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.material:material:1.9.0] C:\Users\chira\.gradle\caches\transforms-3\d488f2c4c46007d73eddcd94b832f4ea\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\chira\.gradle\caches\transforms-3\3229d8dbfb0c633e276edfd3e6294908\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\chira\.gradle\caches\transforms-3\3229d8dbfb0c633e276edfd3e6294908\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\chira\.gradle\caches\transforms-3\1dd36ee72e8db2f33c0603cbcaaa9fbc\transformed\play-services-location-21.0.1\AndroidManifest.xml:7:5-20
@@ -183,138 +183,164 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ch
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:17:9-53
 	android:dataExtractionRules
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:12:9-65
-activity#com.example.shareit.user_details_register
+activity#com.example.shareit.change_user_phone
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:19:9-21:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:21:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:20:13-50
-activity#com.example.shareit.OtpVerification
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:20:13-46
+activity#com.example.shareit.change_user_email
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:22:9-24:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:24:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:23:13-44
-activity#com.example.shareit.ViewShelters
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:23:13-46
+activity#com.example.shareit.change_user_password
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:25:9-27:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:26:13-41
-activity#com.example.shareit.ViewClothes
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:26:13-49
+activity#com.example.shareit.change_user_details
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:28:9-30:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:29:13-40
-activity#com.example.shareit.DonateItem
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:29:13-48
+activity#com.example.shareit.user_details_register
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:31:9-33:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:33:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:32:13-39
-activity#com.example.shareit.View_Contributions
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:32:13-50
+activity#com.example.shareit.OtpVerification
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:34:9-36:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:36:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:35:13-47
-activity#com.example.shareit.Receiver_Side
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:35:13-44
+activity#com.example.shareit.ViewShelters
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:37:9-39:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:38:13-42
-activity#com.example.shareit.Donor_Side
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:38:13-41
+activity#com.example.shareit.ViewClothes
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:40:9-42:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:42:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:41:13-39
-activity#com.example.shareit.ViewFood
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:41:13-40
+activity#com.example.shareit.DonateItem
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:43:9-45:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:45:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:44:13-37
-activity#com.example.shareit.sendFood
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:44:13-39
+activity#com.example.shareit.View_Contributions
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:46:9-48:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:48:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:47:13-37
-activity#com.example.shareit.Register
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:49:9-52:72
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:47:13-47
+activity#com.example.shareit.Receiver_Side
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:49:9-51:40
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:51:13-37
-	android:theme
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:52:13-69
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:50:13-37
-activity#com.example.shareit.Spinner
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:53:9-56:72
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:50:13-42
+activity#com.example.shareit.Donor_Side
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:52:9-54:40
 	android:exported
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:55:13-37
-	android:theme
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:56:13-69
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:54:13-37
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:54:13-36
-activity#com.example.shareit.donation_cloth
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:57:9-60:72
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:53:13-39
+activity#com.example.shareit.ViewFood
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:55:9-57:40
 	android:exported
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:57:13-37
+	android:name
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:56:13-37
+activity#com.example.shareit.sendFood
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:58:9-60:40
+	android:exported
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:60:13-37
+	android:name
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:59:13-37
-	android:theme
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:60:13-69
-	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:58:13-43
-activity#com.example.shareit.donation_shelter
+activity#com.example.shareit.Register
 ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:61:9-64:72
 	android:exported
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:63:13-37
 	android:theme
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:64:13-69
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:62:13-45
-activity#com.example.shareit.Login
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:65:9-74:20
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:62:13-37
+activity#com.example.shareit.Spinner
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:65:9-68:72
 	android:exported
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:67:13-36
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:67:13-37
 	android:theme
 		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:68:13-69
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:66:13-34
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:69:13-73:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:70:17-69
-	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:70:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:72:17-77
-	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:72:27-74
-activity#com.example.shareit.MainActivity
-ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:75:9-78:72
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:66:13-36
+activity#com.example.shareit.donation_cloth
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:69:9-72:72
 	android:exported
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:77:13-36
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:71:13-37
 	android:theme
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:78:13-69
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:72:13-69
 	android:name
-		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:76:13-41
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:70:13-43
+activity#com.example.shareit.donation_shelter
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:73:9-76:72
+	android:exported
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:75:13-37
+	android:theme
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:76:13-69
+	android:name
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:74:13-45
+activity#com.example.shareit.Login
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:77:9-85:20
+	android:exported
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:79:13-36
+	android:theme
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:80:13-69
+	android:name
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:78:13-34
+activity#com.example.shareit.MainActivity
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:86:9-94:20
+	android:exported
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:88:13-36
+	android:theme
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:89:13-69
+	android:name
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:87:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:90:13-93:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:91:17-69
+	android:name
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:91:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:92:17-77
+	android:name
+		ADDED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml:92:27-74
 uses-sdk
 INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\chira\AndroidStudioProjects\donateapp\app\src\main\AndroidManifest.xml
 MERGED from [it.xabaras.android:recyclerview-swipedecorator:1.4] C:\Users\chira\.gradle\caches\transforms-3\85fdc9e417dcd0f84efedfd92bf91d46\transformed\recyclerview-swipedecorator-1.4\AndroidManifest.xml:5:5-7:41
 MERGED from [it.xabaras.android:recyclerview-swipedecorator:1.4] C:\Users\chira\.gradle\caches\transforms-3\85fdc9e417dcd0f84efedfd92bf91d46\transformed\recyclerview-swipedecorator-1.4\AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android.material:material:1.8.0] C:\Users\chira\.gradle\caches\transforms-3\488519bf88b141369e1f2b3fffc88e8e\transformed\material-1.8.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.material:material:1.8.0] C:\Users\chira\.gradle\caches\transforms-3\488519bf88b141369e1f2b3fffc88e8e\transformed\material-1.8.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.9.0] C:\Users\chira\.gradle\caches\transforms-3\d488f2c4c46007d73eddcd94b832f4ea\transformed\material-1.9.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.9.0] C:\Users\chira\.gradle\caches\transforms-3\d488f2c4c46007d73eddcd94b832f4ea\transformed\material-1.9.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\chira\.gradle\caches\transforms-3\3229d8dbfb0c633e276edfd3e6294908\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\chira\.gradle\caches\transforms-3\3229d8dbfb0c633e276edfd3e6294908\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\chira\.gradle\caches\transforms-3\bc14915fedc1798a01b1f6b5d446b360\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\chira\.gradle\caches\transforms-3\bc14915fedc1798a01b1f6b5d446b360\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\chira\.gradle\caches\transforms-3\4a8fc8d4cffe1deef03672f2112cd6a4\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\chira\.gradle\caches\transforms-3\4a8fc8d4cffe1deef03672f2112cd6a4\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\4e8c60a4fc21ab43b90958c81694363f\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\4e8c60a4fc21ab43b90958c81694363f\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\chira\.gradle\caches\transforms-3\1dd36ee72e8db2f33c0603cbcaaa9fbc\transformed\play-services-location-21.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\chira\.gradle\caches\transforms-3\1dd36ee72e8db2f33c0603cbcaaa9fbc\transformed\play-services-location-21.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.firebaseui:firebase-ui-firestore:8.0.2] C:\Users\chira\.gradle\caches\transforms-3\6b274a0f08a4a4503d4283d1f5ce3f88\transformed\firebase-ui-firestore-8.0.2\AndroidManifest.xml:5:5-7:41
@@ -411,8 +437,6 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\chira\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\chira\.gradle\caches\transforms-3\20c1ea1f646bec4ba9d31160fd5ab286\transformed\lifecycle-runtime-2.5.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\chira\.gradle\caches\transforms-3\dd78907b48c0d0bc4118fbfd5a25959d\transformed\savedstate-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\chira\.gradle\caches\transforms-3\dd78907b48c0d0bc4118fbfd5a25959d\transformed\savedstate-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\4e8c60a4fc21ab43b90958c81694363f\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\4e8c60a4fc21ab43b90958c81694363f\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\98f72089a9c20152c64189bbd9e9696c\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\chira\.gradle\caches\transforms-3\98f72089a9c20152c64189bbd9e9696c\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-components:17.1.0] C:\Users\chira\.gradle\caches\transforms-3\a965dd6a152e7911c5c958a51dedbb63\transformed\firebase-components-17.1.0\AndroidManifest.xml:18:5-20:41

@@ -89,8 +89,6 @@ public class Receiver_Side extends AppCompatActivity {
                 Intent intent_getFood = new Intent(getApplicationContext(),ViewClothes.class);
                 startActivity(intent_getFood);
 //                finish();
-
-
             }
         });
         receiveShelter.setOnClickListener(new View.OnClickListener() {

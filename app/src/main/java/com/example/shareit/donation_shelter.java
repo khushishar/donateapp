@@ -8,17 +8,15 @@ import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationAvailability;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
@@ -35,15 +33,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class donation_shelter extends AppCompatActivity {
 
     EditText people, description;
-    Button sendshelter;
+    Button send_shelter;
     FirebaseUser user;
     DatabaseReference UserDB;
     FirebaseAuth mAuth;
@@ -60,7 +56,7 @@ public class donation_shelter extends AppCompatActivity {
 
         people = findViewById(R.id.sendshelter_people);
         description = findViewById(R.id.sendshelter_description);
-        sendshelter= findViewById(R.id.sendshelter_Btn);
+        send_shelter = findViewById(R.id.sendshelter_Btn);
         mAuth = FirebaseAuth.getInstance();
         UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         DB = FirebaseFirestore.getInstance();
@@ -116,10 +112,17 @@ public class donation_shelter extends AppCompatActivity {
         });
 
 
-        sendshelter.setOnClickListener(new View.OnClickListener() {
+        send_shelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertFoodData();
+                if(TextUtils.isEmpty(people.getText())){
+                    people.setError("Please enter number of people");
+                    return;
+                } else if (TextUtils.isEmpty(description.getText())) {
+                    description.setError("Please enter shelter description");
+                    return;
+                }
+                insertShelterData();
             }
         });
 
@@ -141,7 +144,7 @@ public class donation_shelter extends AppCompatActivity {
     }
 
 
-    private void insertFoodData() {
+    private void insertShelterData() {
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
             askPermission();
