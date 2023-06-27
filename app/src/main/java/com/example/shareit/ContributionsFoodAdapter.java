@@ -67,43 +67,6 @@ public class ContributionsFoodAdapter extends FirestoreRecyclerAdapter<FoodItem,
             return getSnapshots().getSnapshot(position).getBoolean("Status");
     }
 
-//
-//    public void renew(int position){
-//        DocumentSnapshot snap = getSnapshots().getSnapshot(position);
-//
-//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-//        Map<String, Object> FoodItem = new HashMap<>();
-//        FoodItem.put("DonorID", snap.getString("DonorID"));
-//        FoodItem.put("DonorName", snap.getString("DonorName"));
-//        FoodItem.put("DonorNumber", snap.getString("DonorNumber"));
-//        FoodItem.put("FoodName", snap.getString("FoodName"));
-//        FoodItem.put("FoodCount", snap.getString("DonorFoodCount"));
-//        FoodItem.put("Location", snap.getGeoPoint("Location"));
-//        FoodItem.put("TimeStamp", com.google.firebase.Timestamp.now().toDate());
-//        FoodItem.put("MilliSec", timestamp.getTime());
-//        FoodItem.put("Status", true);
-//
-//        FoodDB.add(FoodItem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//            @Override
-//            public void onSuccess(DocumentReference documentReference) {
-//                Toast.makeText(context, "Food Order: " + documentReference.getId() + "set successfully", Toast.LENGTH_SHORT).show();
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(context, "Food Order unsuccessful \nError Code:  " + e , Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//    }
-
-//    @Override
-//    public void onDataChanged() {
-//        super.onDataChanged();
-//        if(getItemCount() == 0)
-//            Toast.makeText(context, "There are no Food items", Toast.LENGTH_SHORT).show();
-//    }
-
     @Override
     protected void onBindViewHolder(@NonNull ContributionsFoodAdapter.FoodViewHolder holder, int position, @NonNull FoodItem model) {
 

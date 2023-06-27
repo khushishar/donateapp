@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.geofire.GeoFireUtils;
+import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -47,6 +49,7 @@ public class sendFood extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore FoodDB;
     String UserID, UserName, UserPhone;
+    Boolean UserVerification;
     Double LocLatitude, LocLongitude;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 100;
@@ -110,6 +113,7 @@ public class sendFood extends AppCompatActivity {
             public void onSuccess(DataSnapshot dataSnapshot) {
                 UserName = String.valueOf(dataSnapshot.child("name").getValue());
                 UserPhone = String.valueOf(dataSnapshot.child("phone").getValue());
+                UserVerification = dataSnapshot.child("verification").getValue(Boolean.class);
             }
         });
 
@@ -163,10 +167,15 @@ public class sendFood extends AppCompatActivity {
 
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Map<String, Object> FoodItem = new HashMap<>();
+
+//                FoodItem foodItem = new FoodItem(user.getUid(), UserName, UserPhone, String.valueOf(foodName.getText()), String.valueOf(foodQuantity.getText()), true, UserVerification,   );
+
                 getLocation();
+                FoodItem.put("Hash", GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude), 5));
                 FoodItem.put("DonorID", user.getUid());
                 FoodItem.put("DonorName", UserName);
                 FoodItem.put("DonorNumber", UserPhone);
+                FoodItem.put("Verification", UserVerification);
                 FoodItem.put("FoodName", String.valueOf(foodName.getText()));
                 FoodItem.put("FoodCount", String.valueOf(foodQuantity.getText()));
                 FoodItem.put("Location", new GeoPoint(LocLatitude, LocLongitude));

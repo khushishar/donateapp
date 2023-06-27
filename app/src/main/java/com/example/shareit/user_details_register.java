@@ -62,6 +62,7 @@ public class user_details_register extends AppCompatActivity {
         user = mAuth.getCurrentUser();
         if (user != null) {
             userID = user.getUid();
+            email = user.getEmail();
         }
 
         edt_Name = findViewById(R.id.register_name);
@@ -89,17 +90,20 @@ public class user_details_register extends AppCompatActivity {
                 phone = String.valueOf(edt_Phone.getText());
 
                 if (TextUtils.isEmpty(name)) {
-                    Toast.makeText(user_details_register.this, "Please Enter Name", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(user_details_register.this, "Please Enter Name", Toast.LENGTH_SHORT).show();
+                    edt_Name.setError("Please Enter Name");
                     progressBar.setVisibility(View.INVISIBLE);
                     btn_register.setVisibility(View.VISIBLE);
                     return;
                 } else if (TextUtils.isEmpty(phone) || !phone.matches("\\d{10}")) {
-                    Toast.makeText(user_details_register.this, "Please Enter correct phone number", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(user_details_register.this, "Please Enter correct phone number", Toast.LENGTH_SHORT).show();
+                    edt_Phone.setError("Please Enter correct phone number");
                     progressBar.setVisibility(View.INVISIBLE);
                     btn_register.setVisibility(View.VISIBLE);
                     return;
                 } else if (TextUtils.isEmpty(usertype)) {
-                    Toast.makeText(user_details_register.this, "Please Select User Type", Toast.LENGTH_SHORT).show();
+                    edt_User_Class.setError("Please Select User Type");
+//                    Toast.makeText(user_details_register.this, "Please Select User Type", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
                     btn_register.setVisibility(View.VISIBLE);
                     return;
@@ -126,7 +130,7 @@ public class user_details_register extends AppCompatActivity {
 
                                 String userId = userID;
                                 Boolean verification = true;
-                                email = getIntent().getStringExtra("email");
+                                email = user.getEmail();
                                 User user = new User(name, phone, email, usertype, userId, verification);
                                 UserDB.child("Users").child(userID).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -139,6 +143,10 @@ public class user_details_register extends AppCompatActivity {
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@androidx.annotation.NonNull Exception e) {
+                                        String userId = userID;
+                                        Boolean verification = false;
+                                        email = user.getEmail();
+                                        User user = new User(name, phone, email, usertype, userId, verification);
                                         UserDB.child("Users").child(userID).setValue(user);
                                     }
                                 });
@@ -152,7 +160,7 @@ public class user_details_register extends AppCompatActivity {
                                 user.updatePhoneNumber(credential);
                                 String userId = userID;
                                 Boolean verification = true;
-                                email = getIntent().getStringExtra("email");
+                                email = user.getEmail();
                                 User user = new User(name, phone, email, usertype, userId, verification);
                                 UserDB.child("Users").child(userID).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -190,7 +198,7 @@ public class user_details_register extends AppCompatActivity {
                         } else if (e instanceof FirebaseTooManyRequestsException) {
                             String userId = userID;
                             Boolean verification = false;
-                            email = getIntent().getStringExtra("email");
+                            email = user.getEmail();
                             User user = new User(name, phone, email, usertype, userId, verification);
                             UserDB.child("Users").child(userID).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -235,7 +243,7 @@ public class user_details_register extends AppCompatActivity {
 
                         String userId = userID;
                         Boolean verification = false;
-                        email = getIntent().getStringExtra("email");
+                        email = user.getEmail();
                         User user = new User(name, phone, email, usertype, userId, verification);
                         UserDB.child("Users").child(userID).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,8 +19,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 public class ShelterAdapter extends FirestoreRecyclerAdapter<ShelterItem, ShelterAdapter.ShelterViewHolder> {
 
-    private ShelterAdapter.onShelterItemClickListener listener;
+//    private ShelterAdapter.onShelterItemClickListener listener;
+
     Context context;
+    private onShelterItemMessageButtonClickListener messageButtonClickListener;
+    private onShelterItemCallButtonClickListener callButtonClickListener;
+    private onShelterItemTrackButtonClickListener trackButtonClickListener;
 
     public ShelterAdapter(@NonNull FirestoreRecyclerOptions<ShelterItem> options) {
         super(options);
@@ -35,8 +41,10 @@ public class ShelterAdapter extends FirestoreRecyclerAdapter<ShelterItem, Shelte
     @Override
     public void onDataChanged() {
         super.onDataChanged();
-        if(getItemCount() == 0)
-            Toast.makeText(context, "There are no Food items", Toast.LENGTH_SHORT).show();
+        if(getItemCount() == 0){
+
+        }
+//            Toast.makeText(context, "There are no Food items", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -46,6 +54,9 @@ public class ShelterAdapter extends FirestoreRecyclerAdapter<ShelterItem, Shelte
         holder.DonorNumber.setText(String.valueOf(model.DonorNumber));
         holder.ShelterDesc.setText(String.valueOf(model.ShelterDescription));
         holder.ShelterAvailability.setText(String.valueOf(model.ShelterAvailability));
+        if(model.getVerification()){
+            holder.donor_verification.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -53,6 +64,8 @@ public class ShelterAdapter extends FirestoreRecyclerAdapter<ShelterItem, Shelte
 
         TextView DonorName, DonorNumber, ShelterDesc, ShelterAvailability;
         CardView cardView;
+        Button send_message, call_donor, track_location;
+        ImageView donor_verification;
         public ShelterViewHolder(@NonNull View itemView) {
             super(itemView);
             DonorName = itemView.findViewById(R.id.shelterDonorName);
@@ -60,27 +73,86 @@ public class ShelterAdapter extends FirestoreRecyclerAdapter<ShelterItem, Shelte
             ShelterDesc = itemView.findViewById(R.id.shelterItemDesc);
             ShelterAvailability = itemView.findViewById(R.id.shelterItemCount);
             cardView = itemView.findViewById(R.id.shelterItemCard);
+            donor_verification = itemView.findViewById(R.id.donor_verification);
+            send_message = itemView.findViewById(R.id.message_donor);
+            call_donor = itemView.findViewById(R.id.call_donor);
+            track_location = itemView.findViewById(R.id.track_map);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            send_message.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION && listener != null) {
-                        listener.onShelterItemClick(getSnapshots().getSnapshot(position), position);
+                    if (position != RecyclerView.NO_POSITION && messageButtonClickListener != null) {
+                        messageButtonClickListener.onMessageButtonClick(getSnapshots().getSnapshot(position), position);
                     }
                 }
             });
 
+            call_donor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && callButtonClickListener != null) {
+                        callButtonClickListener.onCallButtonClick(getSnapshots().getSnapshot(position), position);
+                    }
+                }
+            });
+
+            track_location.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && trackButtonClickListener != null) {
+                        trackButtonClickListener.onTrackButtonClick(getSnapshots().getSnapshot(position), position);
+                    }
+                }
+            });
+
+
+
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int position = getAdapterPosition();
+//                    if (position != RecyclerView.NO_POSITION && listener != null) {
+//                        listener.onShelterItemClick(getSnapshots().getSnapshot(position), position);
+//                    }
+//                }
+//            });
+
         }
     }
 
-    public interface onShelterItemClickListener{
-        //        void onFoodItemClick(DocumentSnapshot documentSnapshot, int position);
-        void onShelterItemClick(DocumentSnapshot documentSnapshot, int position);
+    public  interface onShelterItemMessageButtonClickListener {
+        void onMessageButtonClick(DocumentSnapshot documentSnapshot, int position);
+    }
+    public void setOnMessageButtonClickListener(onShelterItemMessageButtonClickListener listener){
+        this.messageButtonClickListener = listener;
     }
 
-    public void setOnShelterItemClickListener(ShelterAdapter.onShelterItemClickListener listener){
-        this.listener = listener;
+    public  interface onShelterItemCallButtonClickListener {
+        void onCallButtonClick(DocumentSnapshot documentSnapshot, int position);
     }
+
+    public void setOnCallButtonClickListener(onShelterItemCallButtonClickListener listener){
+        this.callButtonClickListener = listener;
+    }
+
+    public  interface onShelterItemTrackButtonClickListener {
+        void onTrackButtonClick(DocumentSnapshot documentSnapshot, int position);
+    }
+
+    public void setOnTrackButtonClickListener(onShelterItemTrackButtonClickListener listener){
+        this.trackButtonClickListener = listener;
+    }
+
+//    public interface onShelterItemClickListener{
+//        //        void onFoodItemClick(DocumentSnapshot documentSnapshot, int position);
+//        void onShelterItemClick(DocumentSnapshot documentSnapshot, int position);
+//    }
+//
+//    public void setOnShelterItemClickListener(ShelterAdapter.onShelterItemClickListener listener){
+//        this.listener = listener;
+//    }
 
 }

@@ -6,11 +6,11 @@ import com.google.firebase.firestore.GeoPoint;
 public class ShelterItem {
 
     String DonorID, DonorName, DonorNumber, ShelterDescription, ShelterAvailability;
-    Boolean Status;
+    Boolean Status, Verification;
     Timestamp TimeStamp;
     GeoPoint Location;
 
-    public ShelterItem(String donorID, String donorName, String donorNumber, String shelterDescription, String shelterAvailability, Timestamp timestamp, Boolean status, GeoPoint location) {
+    public ShelterItem(String donorID, String donorName, String donorNumber, String shelterDescription, String shelterAvailability, Timestamp timestamp, Boolean status, Boolean verification,GeoPoint location) {
         DonorID = donorID;
         DonorName = donorName;
         DonorNumber = donorNumber;
@@ -18,8 +18,18 @@ public class ShelterItem {
         ShelterAvailability = shelterAvailability;
         Location = location;
         Status = status;
+        Verification = verification;
         TimeStamp = timestamp;
     }
+
+    public Boolean getVerification() {
+        return Verification;
+    }
+
+    public void setVerification(Boolean verification) {
+        Verification = verification;
+    }
+
 
     public GeoPoint getLocation() {
         return Location;

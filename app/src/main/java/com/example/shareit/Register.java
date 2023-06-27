@@ -94,6 +94,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                btn_register.setVisibility(View.INVISIBLE);
                 email = String.valueOf(edt_Mail.getText());
                 password = String.valueOf(edt_Password.getText());
                 conf_password = String.valueOf(edt_Conf_Password.getText());
@@ -103,19 +104,23 @@ public class Register extends AppCompatActivity {
                 if(TextUtils.isEmpty(email) ||!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")){
                     Toast.makeText(Register.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
+                    btn_register.setVisibility(View.VISIBLE);
                     return;
                 }
                 else if (TextUtils.isEmpty(password) ) {
                     Toast.makeText(Register.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
+                    btn_register.setVisibility(View.VISIBLE);
                     return;
                 } else if (!password.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")) {
                     Toast.makeText(Register.this, "Password must have minimum eight characters, at least one letter, one number and one special character", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
+                    btn_register.setVisibility(View.VISIBLE);
                     return;
                 } else if (TextUtils.isEmpty(conf_password) || !TextUtils.equals(password, conf_password)) {
                     Toast.makeText(Register.this, "Please Recheck Entered Password", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
+                    btn_register.setVisibility(View.VISIBLE);
                     return;
                 }
                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -123,6 +128,7 @@ public class Register extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
+                                btn_register.setVisibility(View.VISIBLE);
                                 if (task.isSuccessful()) {
 
                                     user = mAuth.getCurrentUser();
@@ -142,6 +148,7 @@ public class Register extends AppCompatActivity {
                                             Toast.makeText(Register.this, "Something went wrong with your email. Please Signup again.", Toast.LENGTH_LONG).show();
                                             user.delete();
                                             progressBar.setVisibility(View.GONE);
+                                            btn_register.setVisibility(View.VISIBLE);
                                             Intent intent_signin = new Intent(getApplicationContext(), Register.class);
                                             startActivity(intent_signin);
                                             finish();
@@ -153,6 +160,7 @@ public class Register extends AppCompatActivity {
                                     Toast.makeText(Register.this, "Registration failed.",
                                             Toast.LENGTH_SHORT).show();
                                     progressBar.setVisibility(View.GONE);
+                                    btn_register.setVisibility(View.VISIBLE);
                                 }
                             }
                         });

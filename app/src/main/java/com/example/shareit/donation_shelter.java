@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.geofire.GeoFireUtils;
+import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -45,6 +47,7 @@ public class donation_shelter extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore DB;
     String UserID, UserName, UserPhone;
+    Boolean UserVerification;
     Double LocLatitude, LocLongitude;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 100;
@@ -108,6 +111,7 @@ public class donation_shelter extends AppCompatActivity {
             public void onSuccess(DataSnapshot dataSnapshot) {
                 UserName = String.valueOf(dataSnapshot.child("name").getValue());
                 UserPhone = String.valueOf(dataSnapshot.child("phone").getValue());
+                UserVerification = dataSnapshot.child("verification").getValue(Boolean.class);
             }
         });
 
@@ -162,9 +166,12 @@ public class donation_shelter extends AppCompatActivity {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Map<String, Object> shelterItem = new HashMap<>();
                 getLocation();
+
+                shelterItem.put("Hash", GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude), 5));
                 shelterItem.put("DonorID", user.getUid());
                 shelterItem.put("DonorName", UserName);
                 shelterItem.put("DonorNumber", UserPhone);
+                shelterItem.put("Verification", UserVerification);
                 shelterItem.put("ShelterAvailability", String.valueOf(people.getText()));
                 shelterItem.put("ShelterDescription", String.valueOf(description.getText()));
                 shelterItem.put("Location",new GeoPoint(LocLatitude, LocLongitude));
@@ -175,7 +182,7 @@ public class donation_shelter extends AppCompatActivity {
                 DB.collection("Shelters").add(shelterItem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(donation_shelter.this, "Cloth Order: " + documentReference.getId() + "set successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(donation_shelter.this, "Shelter Order: " + documentReference.getId() + "set successfully", Toast.LENGTH_SHORT).show();
                         Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent_main);
                         finish();
@@ -183,7 +190,7 @@ public class donation_shelter extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(donation_shelter.this, "Cloth Order unsuccessful \nError Code:  " + e , Toast.LENGTH_SHORT).show();
+                        Toast.makeText(donation_shelter.this, "Shelter Order unsuccessful \nError Code:  " + e , Toast.LENGTH_SHORT).show();
                         Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent_main);
                         finish();

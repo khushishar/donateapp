@@ -2947,8 +2947,12 @@ drawable background_button_purple
 drawable baseline_add_24
 drawable baseline_archive_24
 drawable baseline_autorenew_24
+drawable baseline_call_24
 drawable baseline_delete_sweep_24
+drawable baseline_map_24
+drawable baseline_message_24
 drawable baseline_save_alt_24
+drawable baseline_verified_24
 drawable bg_round
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3201,6 +3205,7 @@ id buttonPanel
 id buttongetotp
 id cache_measures
 id callMeasure
+id call_donor
 id cancel_action
 id cancel_button
 id carryVelocity
@@ -3279,6 +3284,7 @@ id disjoint
 id donateClothes
 id donateFood
 id donateShelter
+id donor_verification
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -3413,6 +3419,7 @@ id material_value_index
 id matrix
 id media_actions
 id message
+id message_donor
 id middle
 id mini
 id month_grid
@@ -3647,6 +3654,7 @@ id toggle
 id top
 id topPanel
 id touch_outside
+id track_map
 id transitionToEnd
 id transitionToStart
 id transition_current_scene

@@ -5,7 +5,8 @@ import com.google.firebase.firestore.GeoPoint;
 
 public class FoodItem {
     String DonorID, DonorName, DonorNumber, FoodName, FoodCount;
-    Boolean Status;
+    Boolean Status, Verification;
+    String Hash;
     Timestamp TimeStamp;
     GeoPoint Location;
 
@@ -18,15 +19,33 @@ public class FoodItem {
         Status = status;
     }
 
-    public FoodItem(String donorID, String donorName, String donorNumber, String foodName, String foodCount,  Boolean status, Timestamp timestamp, GeoPoint location) {
+    public FoodItem(String donorID, String donorName, String donorNumber, String foodName, String foodCount, String hash, Boolean status, Boolean verification ,Timestamp timestamp, GeoPoint location) {
         DonorID = donorID;
         DonorName = donorName;
         DonorNumber = donorNumber;
         FoodName = foodName;
         FoodCount = foodCount;
         Status = status;
+        Verification = verification;
         TimeStamp = timestamp;
         Location = location;
+        Hash = hash;
+    }
+
+    public String getHash() {
+        return Hash;
+    }
+
+    public void setHash(String hash) {
+        Hash = hash;
+    }
+
+    public Boolean getVerification() {
+        return Verification;
+    }
+
+    public void setVerification(Boolean verification) {
+        Verification = verification;
     }
 
     public GeoPoint getLocation() {

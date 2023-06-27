@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.geofire.GeoFireUtils;
+import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -45,6 +47,7 @@ public class donation_cloth extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore DB;
     String UserID, UserName, UserPhone;
+    Boolean UserVerification;
     Double LocLatitude, LocLongitude;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 100;
@@ -108,6 +111,7 @@ public class donation_cloth extends AppCompatActivity {
             public void onSuccess(DataSnapshot dataSnapshot) {
                 UserName = String.valueOf(dataSnapshot.child("name").getValue());
                 UserPhone = String.valueOf(dataSnapshot.child("phone").getValue());
+                UserVerification = dataSnapshot.child("verification").getValue(Boolean.class);
             }
         });
 
@@ -162,10 +166,14 @@ public class donation_cloth extends AppCompatActivity {
 
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Map<String, Object> ClothItem = new HashMap<>();
+
                 getLocation();
+
+                ClothItem.put("Hash", GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude), 5));
                 ClothItem.put("DonorID", user.getUid());
                 ClothItem.put("DonorName", UserName);
                 ClothItem.put("DonorNumber", UserPhone);
+                ClothItem.put("Verification", UserVerification);
                 ClothItem.put("ClothName", String.valueOf(clothtype.getText()));
                 ClothItem.put("ClothCount", String.valueOf(Quantity.getText()));
                 ClothItem.put("Location",new GeoPoint(LocLatitude, LocLongitude));

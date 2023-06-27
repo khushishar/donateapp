@@ -8,9 +8,9 @@ public class ClothItem {
     String DonorID, DonorName, DonorNumber, ClothName, ClothCount;
     GeoPoint Location;
     Timestamp TimeStamp;
-    Boolean Status;
+    Boolean Status, Verification;
 
-    public ClothItem(String donorID, String donorName, String donorNumber, String clothName, String clothCount, GeoPoint location, Timestamp timestamp, Boolean status) {
+    public ClothItem(String donorID, String donorName, String donorNumber, String clothName, String clothCount, GeoPoint location, Timestamp timestamp, Boolean status, Boolean verification) {
         DonorID = donorID;
         DonorName = donorName;
         DonorNumber = donorNumber;
@@ -19,6 +19,15 @@ public class ClothItem {
         Location = location;
         TimeStamp = timestamp;
         Status = status;
+        Verification = verification;
+    }
+
+    public Boolean getVerification() {
+        return Verification;
+    }
+
+    public void setVerification(Boolean verification) {
+        Verification = verification;
     }
 
     public GeoPoint getLocation() {

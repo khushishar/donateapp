@@ -20,8 +20,12 @@ drawable background_button_purple
 drawable baseline_add_24
 drawable baseline_archive_24
 drawable baseline_autorenew_24
+drawable baseline_call_24
 drawable baseline_delete_sweep_24
+drawable baseline_map_24
+drawable baseline_message_24
 drawable baseline_save_alt_24
+drawable baseline_verified_24
 drawable bg_round
 drawable cafe
 drawable cloth
@@ -45,6 +49,7 @@ drawable reset_password_pana
 drawable shelter
 id add_contributions
 id buttongetotp
+id call_donor
 id change_email
 id change_email_btn
 id change_new_password
@@ -65,6 +70,7 @@ id contributionsItemName
 id donateClothes
 id donateFood
 id donateShelter
+id donor_verification
 id foodDonorName
 id foodDonorNumber
 id foodItemCard
@@ -87,6 +93,7 @@ id login_email
 id login_password
 id login_progressbar
 id logout
+id message_donor
 id password_change_btn
 id progressbar_sending_otp
 id progressbar_verify_otp
@@ -123,6 +130,7 @@ id textmobileshownumber
 id textresendotp
 id to_login
 id to_register
+id track_map
 id user_details
 id user_spinner
 id userd_change_btn

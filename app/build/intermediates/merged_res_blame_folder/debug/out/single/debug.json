@@ -12,6 +12,14 @@
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\drawable_baseline_call_24.xml.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\drawable\\baseline_call_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\drawable_baseline_map_24.xml.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\drawable\\baseline_map_24.xml"
+    },
+    {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_change_user_password.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_change_user_password.xml"
     },
@@ -28,16 +36,12 @@
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\clothcard_item.xml"
     },
     {
-        "merged": "com.example.shareit.app-merged_res-36:/layout_activity_login.xml.flat",
-        "source": "com.example.shareit.app-main-38:/layout/activity_login.xml"
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_donation_cloth.xml.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_donation_cloth.xml"
     },
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_receiver_side.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_receiver_side.xml"
-    },
-    {
-        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_donation_cloth.xml.flat",
-        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_donation_cloth.xml"
     },
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_spinner.xml.flat",
@@ -58,6 +62,10 @@
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\drawable_baseline_message_24.xml.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\drawable\\baseline_message_24.xml"
     },
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_activity_donor_side.xml.flat",
@@ -106,6 +114,10 @@
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "com.example.shareit.app-merged_res-36:/layout_activity_register.xml.flat",
+        "source": "com.example.shareit.app-main-38:/layout/activity_register.xml"
     },
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\drawable_donate.png.flat",
@@ -284,12 +296,12 @@
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\contributionscard_item.xml"
     },
     {
-        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\mipmap-xxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_sheltercard_item.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\layout\\sheltercard_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\mipmap-xhdpi_ic_launcher.png.flat",
@@ -314,6 +326,10 @@
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\xml_data_extraction_rules.xml.flat",
         "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\drawable_baseline_verified_24.xml.flat",
+        "source": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-main-38:\\drawable\\baseline_verified_24.xml"
     },
     {
         "merged": "C:\\Users\\chira\\.gradle\\daemon\\7.5\\com.example.shareit.app-merged_res-36:\\layout_progress_dialog.xml.flat",

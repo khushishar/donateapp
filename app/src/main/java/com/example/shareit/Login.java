@@ -206,7 +206,7 @@ public class Login extends AppCompatActivity {
                                                     finish();
                                                 }else{
                                                     Intent intent_user_details = new Intent(getApplicationContext(), user_details_register.class);
-                                                    intent_user_details.putExtra("email", currentUser.getEmail());
+                                                    intent_user_details.putExtra("email", mAuth.getCurrentUser().getEmail());
                                                     startActivity(intent_user_details);
                                                     finish();
                                                 }

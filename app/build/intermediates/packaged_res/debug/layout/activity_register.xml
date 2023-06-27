@@ -115,21 +115,29 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <ProgressBar
-        android:id="@+id/register_progressbar"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/register_btn"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#b7e2f3"
-        android:text="@string/register_btn"
-        android:textColor="#090909"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="10dp">
+
+        <ProgressBar
+            android:id="@+id/register_progressbar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#b7e2f3"
+            android:text="@string/register_btn"
+            android:textColor="#090909"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"/>
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/to_login"
