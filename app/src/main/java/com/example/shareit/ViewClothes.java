@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.firebase.geofire.GeoFireUtils;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -34,6 +35,8 @@ public class ViewClothes extends AppCompatActivity {
     private CollectionReference ClothDB = DB.collection("Clothes");
     ProgressDialog progressDialog;
     Double LocLatitude, LocLongitude;
+    String UserID;
+    FirebaseAuth mAuth;
 
 
     @Override
@@ -55,6 +58,7 @@ public class ViewClothes extends AppCompatActivity {
         Bundle loc = getIntent().getExtras();
         LocLongitude = loc.getDouble("LocLongitude");
         LocLatitude = loc.getDouble("LocLatitude");
+        UserID = loc.getString("UserID");
 
         setUpRecyclerView();
 
@@ -65,12 +69,11 @@ public class ViewClothes extends AppCompatActivity {
         if(LocLongitude != null && LocLatitude != null){
             Map<String, String> Neighbours;
             Neighbours = Geohash.neighbours(GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude),5));
-            Log.d("My location", GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude),5));
-            Log.d("N", Neighbours.get("n"));
+
             List<String> neighbours = new ArrayList<>(Neighbours.values());
             neighbours.add(GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude),5));
 
-            Query query = ClothDB.whereIn("Hash", neighbours).whereEqualTo("Status", true).orderBy("TimeStamp", Query.Direction.DESCENDING);
+            Query query = ClothDB.whereIn("Hash", neighbours).whereNotEqualTo("DonorID", UserID).whereEqualTo("Status", true).orderBy("DonorID").orderBy("TimeStamp", Query.Direction.DESCENDING);
             clothOptions = new FirestoreRecyclerOptions.Builder<ClothItem>()
                     .setQuery(query, ClothItem.class)
                     .build();

@@ -1,9 +1,11 @@
 package com.example.shareit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,13 +13,17 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 public class change_user_details extends AppCompatActivity {
 
@@ -32,19 +38,19 @@ public class change_user_details extends AppCompatActivity {
     String[] UserClass = {"Donor", "Receiver"};
     ArrayAdapter<String> adapterClasses;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mAuth = FirebaseAuth.getInstance();
-        UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-        user = mAuth.getCurrentUser();
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_user_details);
+
+        mAuth = FirebaseAuth.getInstance();
+        UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
+        user = mAuth.getCurrentUser();
+
+        name = getIntent().getStringExtra("userName");
+        usertype = getIntent().getStringExtra("userType");
+        Log.d(name, usertype);
 
         edt_Name = findViewById(R.id.register_name);
         edt_User_Class = findViewById(R.id.register_user_type);
@@ -54,19 +60,24 @@ public class change_user_details extends AppCompatActivity {
         btn_save = findViewById(R.id.userd_change_btn);
         edt_User_Class.setAdapter(adapterClasses);
 
-        UserDB.child(mAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+        String UserID = user.getUid();
+
+        UserDB.child(UserID).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
             @Override
             public void onSuccess(DataSnapshot dataSnapshot) {
 
-                edt_Name.setText(dataSnapshot.child("name").getValue().toString());
-                if(dataSnapshot.child("usertype").getValue().toString() == "Donor") {
-                    edt_User_Class.setListSelection(0);
-                }else {
+                Log.d("UserID", UserID );
+                Log.d("Username", String.valueOf(dataSnapshot.child("name").getValue()) );
+                edt_Name.setText(name);
+                if(usertype == "Donor") {
                     edt_User_Class.setListSelection(1);
+                }else {
+                    edt_User_Class.setListSelection(2);
                 }
 
             }
         });
+
 
         edt_User_Class.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -87,5 +98,11 @@ public class change_user_details extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

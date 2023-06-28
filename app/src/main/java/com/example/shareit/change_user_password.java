@@ -50,6 +50,7 @@ public class change_user_password extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                btn_save.setVisibility(View.INVISIBLE);
                 old_pass = edt_old_pass.getText().toString();
                 new_pass = edt_new_pass.getText().toString();
                 renew_pass = edt_renew_pass.getText().toString();
@@ -57,26 +58,32 @@ public class change_user_password extends AppCompatActivity {
                 if(TextUtils.isEmpty(old_pass)){
                     edt_old_pass.setError("Please Enter Old Password");
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_save.setVisibility(View.VISIBLE);
                     return;
-                } else if (old_pass.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")) {
+                } else if (!old_pass.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")) {
                     Toast.makeText(change_user_password.this, "Please enter old password correctly", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_save.setVisibility(View.VISIBLE);
                     return;
                 } else if (TextUtils.isEmpty(new_pass)) {
                     edt_new_pass.setError("Please enter new password");
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_save.setVisibility(View.VISIBLE);
                     return;
                 } else if (!new_pass.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")) {
                     Toast.makeText(change_user_password.this, "New password must have minimum eight characters, at least one letter, one number and one special character", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_save.setVisibility(View.VISIBLE);
                     return;
                 } else if (TextUtils.isEmpty(renew_pass)) {
                     edt_renew_pass.setError("Field cant be empty");
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_save.setVisibility(View.VISIBLE);
                     return;
                 } else if (!TextUtils.equals(new_pass, renew_pass)) {
                     Toast.makeText(change_user_password.this, "New Password and Confirm Password should be same", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
+                    btn_save.setVisibility(View.VISIBLE);
                     return;
                 }else {
                     reset_password(old_pass, new_pass);
@@ -94,6 +101,7 @@ public class change_user_password extends AppCompatActivity {
             @Override
             public void onSuccess(Void unused) {
                 progressBar.setVisibility(View.INVISIBLE);
+                btn_save.setVisibility(View.VISIBLE);
                 user.updatePassword(new_pass).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -109,7 +117,7 @@ public class change_user_password extends AppCompatActivity {
                         mAuth.sendPasswordResetEmail(user.getEmail()).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(change_user_password.this, "Sending password reset link", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(change_user_password.this, "Sending password reset link to your registered email", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -119,6 +127,7 @@ public class change_user_password extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 progressBar.setVisibility(View.INVISIBLE);
+                btn_save.setVisibility(View.VISIBLE);
                 Toast.makeText(change_user_password.this, "Old password could not be verified, resending password reset link", Toast.LENGTH_SHORT).show();
                 mAuth.sendPasswordResetEmail(user.getEmail()).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

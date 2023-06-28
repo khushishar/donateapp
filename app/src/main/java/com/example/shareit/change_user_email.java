@@ -39,20 +39,24 @@ public class change_user_email extends AppCompatActivity {
         setContentView(R.layout.activity_change_user_email);
 
         edt_email = findViewById(R.id.change_email);
-        String email = edt_email.getText().toString();
         btn_save = findViewById(R.id.change_email_btn);
         progressBar = findViewById(R.id.change_progressbar);
 
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String email = edt_email.getText().toString();
                 progressBar.setVisibility(View.VISIBLE);
+                btn_save.setVisibility(View.INVISIBLE);
                 if (TextUtils.isEmpty(email)) {
                     edt_email.setError("PLease enter email");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    btn_save.setVisibility(View.VISIBLE);
                     return;
                 } else if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
                     Toast.makeText(change_user_email.this, "Please enter your email properly", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+                    btn_save.setVisibility(View.VISIBLE);
                     return;
                 }
 
@@ -60,6 +64,7 @@ public class change_user_email extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         progressBar.setVisibility(View.INVISIBLE);
+                        btn_save.setVisibility(View.VISIBLE);
                         Toast.makeText(change_user_email.this, "Please verify using the link sent to new email to update", Toast.LENGTH_SHORT).show();
                         Intent main = new Intent(getApplicationContext(),MainActivity.class);
                         startActivity(main);
@@ -69,6 +74,7 @@ public class change_user_email extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressBar.setVisibility(View.INVISIBLE);
+                        btn_save.setVisibility(View.VISIBLE);
                         Toast.makeText(change_user_email.this, "Please check if the email is correct", Toast.LENGTH_SHORT).show();
                     }
                 });

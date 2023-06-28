@@ -45,7 +45,7 @@ public class change_user_phone extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mAuth = FirebaseAuth.getInstance();
-        UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
+        UserDB = FirebaseDatabase.getInstance("https://share-it-6d179-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         user = mAuth.getCurrentUser();
         if (user != null) {
             userID = user.getUid();
@@ -101,7 +101,7 @@ public class change_user_phone extends AppCompatActivity {
 
                                 String userId = userID;
                                 Boolean verification = true;
-                                UserDB.child("Users").child(userID).child("phone").setValue(phone).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                UserDB.child(userID).child("phone").setValue(phone).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@androidx.annotation.NonNull Task<Void> task) {
                                         Toast.makeText(change_user_phone.this, "Verification Complete. User Data saved", Toast.LENGTH_SHORT).show();
@@ -112,7 +112,7 @@ public class change_user_phone extends AppCompatActivity {
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@androidx.annotation.NonNull Exception e) {
-                                        UserDB.child("Users").child(userID).child("phone").setValue(phone);
+                                        UserDB.child(userID).child("phone").setValue(phone);
                                     }
                                 });
                                 progressBar.setVisibility(View.INVISIBLE);
@@ -146,8 +146,8 @@ public class change_user_phone extends AppCompatActivity {
                         @io.reactivex.rxjava3.annotations.NonNull String mVerificationId = verificationId;
                         PhoneAuthProvider.@io.reactivex.rxjava3.annotations.NonNull ForceResendingToken mResendToken = token;
 
-                        UserDB.child("Users").child(userID).child("phone").setValue(phone);
-                        UserDB.child("Users").child(userID).child("verification").setValue(false).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        UserDB.child(userID).child("phone").setValue(phone);
+                        UserDB.child(userID).child("verification").setValue(false).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@androidx.annotation.NonNull Task<Void> task) {
                                 Toast.makeText(change_user_phone.this, "OTP sent to your number: " + phone, Toast.LENGTH_SHORT).show();
@@ -159,8 +159,8 @@ public class change_user_phone extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@androidx.annotation.NonNull Exception e) {
-                                UserDB.child("Users").child(userID).child("phone").setValue(phone);
-                                UserDB.child("Users").child(userID).child("verification").setValue(false);
+                                UserDB.child(userID).child("phone").setValue(phone);
+                                UserDB.child(userID).child("verification").setValue(false);
                                 Intent otp_ver = new Intent(getApplicationContext(),OtpVerification.class);
                                 otp_ver.putExtra("number", phone);
                                 otp_ver.putExtra("OTPBackend", verificationId);

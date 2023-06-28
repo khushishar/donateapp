@@ -7,6 +7,7 @@
         <item>Shelter</item>
     </string-array>
     <color name="black">#FF000000</color>
+    <color name="blue_aesthetic">#b7e2f3</color>
     <color name="colortextfirst">#000000</color>
     <color name="colortextsecond">#777474</color>
     <color name="green_card">#3CB043</color>

@@ -53,6 +53,7 @@ public class ViewFood extends AppCompatActivity {
     private CollectionReference FoodDB = DB.collection("Foods");
     ProgressDialog progressDialog;
     Double LocLatitude, LocLongitude;
+    String UserID;
 
 
     @Override
@@ -74,6 +75,7 @@ public class ViewFood extends AppCompatActivity {
         Bundle loc = getIntent().getExtras();
         LocLongitude = loc.getDouble("LocLongitude");
         LocLatitude = loc.getDouble("LocLatitude");
+        UserID = loc.getString("UserID");
 
         setUpRecyclerView();
 
@@ -89,7 +91,7 @@ public class ViewFood extends AppCompatActivity {
             List<String> neighbours = new ArrayList<>(Neighbours.values());
             neighbours.add(GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude),5));
 
-            Query query = FoodDB.whereIn("Hash", neighbours).whereEqualTo("Status", true).orderBy("TimeStamp", Query.Direction.DESCENDING);
+            Query query = FoodDB.whereIn("Hash", neighbours).whereNotEqualTo("DonorID", UserID).whereEqualTo("Status", true).orderBy("DonorID").orderBy("TimeStamp", Query.Direction.DESCENDING);
              foodOptions = new FirestoreRecyclerOptions.Builder<FoodItem>()
                     .setQuery(query, FoodItem.class)
                     .build();
