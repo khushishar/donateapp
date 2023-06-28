@@ -13,6 +13,8 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -59,6 +61,9 @@ public class Donor_Side extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_donor_side);
 
         mAuth = FirebaseAuth.getInstance();
@@ -301,4 +306,16 @@ public class Donor_Side extends AppCompatActivity {
         super.onPause();
         closeDrawer(menu_drawer);
     }
+
+    @Override
+    public void onBackPressed() {
+
+        if(menu_drawer.isDrawerOpen(GravityCompat.START)){
+            menu_drawer.closeDrawer(GravityCompat.START);
+        }else{
+            finish();
+            super.onBackPressed();
+        }
+    }
+
 }

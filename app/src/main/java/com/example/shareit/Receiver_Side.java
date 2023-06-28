@@ -16,6 +16,8 @@ import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -65,6 +67,9 @@ public class Receiver_Side extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_receiver_side);
 
         mAuth = FirebaseAuth.getInstance();
@@ -404,6 +409,17 @@ public class Receiver_Side extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
         activity.finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(menu_drawer.isDrawerOpen(GravityCompat.START)){
+            menu_drawer.closeDrawer(GravityCompat.START);
+        }else{
+            finish();
+            super.onBackPressed();
+        }
     }
 
     @Override
