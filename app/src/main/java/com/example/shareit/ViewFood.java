@@ -91,7 +91,7 @@ public class ViewFood extends AppCompatActivity {
             List<String> neighbours = new ArrayList<>(Neighbours.values());
             neighbours.add(GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude),5));
 
-            Query query = FoodDB.whereIn("Hash", neighbours).whereNotEqualTo("DonorID", UserID).whereEqualTo("Status", true).orderBy("DonorID").orderBy("TimeStamp", Query.Direction.DESCENDING);
+            Query query = FoodDB.whereIn("Hash", neighbours).whereEqualTo("Status", true).orderBy("TimeStamp", Query.Direction.DESCENDING);
              foodOptions = new FirestoreRecyclerOptions.Builder<FoodItem>()
                     .setQuery(query, FoodItem.class)
                     .build();

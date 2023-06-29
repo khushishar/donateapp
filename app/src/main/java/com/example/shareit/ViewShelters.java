@@ -73,7 +73,7 @@ public class ViewShelters extends AppCompatActivity {
             List<String> neighbours = new ArrayList<>(Neighbours.values());
             neighbours.add(GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude),5));
 
-            Query query = ShelterDB.whereIn("Hash", neighbours).whereNotEqualTo("DonorID", UserID).whereEqualTo("Status", true).orderBy("DonorID").orderBy("TimeStamp", Query.Direction.DESCENDING);
+            Query query = ShelterDB.whereIn("Hash", neighbours).whereEqualTo("Status", true).orderBy("TimeStamp", Query.Direction.DESCENDING);
             shelterOptions = new FirestoreRecyclerOptions.Builder<ShelterItem>()
                     .setQuery(query, ShelterItem.class)
                     .build();

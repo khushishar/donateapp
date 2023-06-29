@@ -73,7 +73,7 @@ public class ViewClothes extends AppCompatActivity {
             List<String> neighbours = new ArrayList<>(Neighbours.values());
             neighbours.add(GeoFireUtils.getGeoHashForLocation(new GeoLocation(LocLatitude, LocLongitude),5));
 
-            Query query = ClothDB.whereIn("Hash", neighbours).whereNotEqualTo("DonorID", UserID).whereEqualTo("Status", true).orderBy("DonorID").orderBy("TimeStamp", Query.Direction.DESCENDING);
+            Query query = ClothDB.whereIn("Hash", neighbours).whereEqualTo("Status", true).orderBy("TimeStamp", Query.Direction.DESCENDING);
             clothOptions = new FirestoreRecyclerOptions.Builder<ClothItem>()
                     .setQuery(query, ClothItem.class)
                     .build();

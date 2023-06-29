@@ -13,8 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26bc2422-e45d-4e98-ac84-09092342ec88" name="Changes" comment="UI done">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/Donor_Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/Donor_Side.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/Receiver_Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/Receiver_Side.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/ViewClothes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/ViewClothes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/ViewFood.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/ViewFood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/ViewShelters.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/ViewShelters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/change_user_details.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shareit/change_user_details.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
