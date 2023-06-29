@@ -199,7 +199,7 @@ public class Login extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(DataSnapshot dataSnapshot) {
 
-                                                if(dataSnapshot.child(UserID).exists()){
+                                                if(dataSnapshot.child(UserID).hasChild("name") && dataSnapshot.child(UserID).hasChild("email") && dataSnapshot.child(UserID).hasChild("phone") ){
                                                     Toast.makeText(Login.this, "LoggedIn Successfully.",Toast.LENGTH_SHORT).show();
                                                     Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
                                                     startActivity(intent_main);
